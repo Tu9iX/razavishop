@@ -3,22 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ef394e">
+
 <title>RazaviShop | فروشگاه آنلاین</title>
 
 <style>
+
+/* =========================================================
+   RAZAVISHOP
+   PROFESSIONAL E-COMMERCE FRONTEND
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+:root{
+    --red:#ef394e;
+    --red-dark:#d92d42;
+    --black:#171717;
+    --text:#222;
+    --muted:#777;
+    --bg:#f5f5f5;
+    --white:#fff;
+    --border:#e7e7e7;
+    --green:#16a34a;
+    --orange:#f59e0b;
+    --shadow:0 8px 30px rgba(0,0,0,.07);
+    --radius:18px;
+}
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    font-family:Tahoma,Arial,sans-serif;
-    background:#f5f6f8;
-    color:#222;
+    font-family:"Vazirmatn",Tahoma,sans-serif;
+    background:var(--bg);
+    color:var(--text);
 }
 
-button,input,select{
+button,
+input,
+select{
     font-family:inherit;
 }
 
@@ -31,451 +62,1278 @@ a{
     color:inherit;
 }
 
-/* TOP */
+img{
+    max-width:100%;
+    display:block;
+}
 
-.topbar{
-    background:#15161b;
-    color:#ddd;
-    padding:8px 5%;
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+
+.top-bar{
+    background:#202020;
+    color:#fff;
+    min-height:38px;
+}
+
+.top-bar-inner{
+    max-width:1400px;
+    margin:auto;
+    padding:0 20px;
+    height:38px;
+
     display:flex;
+    align-items:center;
     justify-content:space-between;
+
     font-size:12px;
 }
 
-/* HEADER */
-
-header{
-    background:#fff;
-    position:sticky;
-    top:0;
-    z-index:100;
-    box-shadow:0 2px 15px rgba(0,0,0,.07);
+.top-links{
+    display:flex;
+    gap:25px;
 }
 
+.top-links span{
+    opacity:.85;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
 .header{
-    max-width:1250px;
+    background:#fff;
+    border-bottom:1px solid var(--border);
+    position:sticky;
+    top:0;
+    z-index:500;
+}
+
+.header-main{
+    max-width:1400px;
     margin:auto;
-    padding:15px;
+    padding:17px 20px;
+
     display:flex;
     align-items:center;
-    gap:20px;
+    gap:25px;
 }
 
 .logo{
-    font-size:28px;
+    width:180px;
+    flex-shrink:0;
+}
+
+.logo img{
+    width:100%;
+    height:55px;
+    object-fit:contain;
+}
+
+/* اگر لوگو هنوز موجود نیست */
+.logo-text{
+    font-size:29px;
     font-weight:900;
-    color:#e91e63;
-    white-space:nowrap;
+    color:var(--red);
+    letter-spacing:-1px;
 }
 
-.logo span{
-    color:#17181d;
+.logo-text span{
+    color:#222;
 }
 
-.search{
+
+/* SEARCH */
+
+.search-box{
+    flex:1;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    height:50px;
+
+    border:none;
+    outline:none;
+
+    background:#f1f2f4;
+
+    border-radius:12px;
+
+    padding:0 50px 0 20px;
+
+    font-size:14px;
+
+    transition:.2s;
+}
+
+.search-box input:focus{
+    background:#fff;
+    box-shadow:0 0 0 2px #ef394e22;
+}
+
+.search-icon{
+    position:absolute;
+    right:17px;
+    top:50%;
+    transform:translateY(-50%);
+
+    color:#777;
+    font-size:20px;
+}
+
+.search-results{
+    position:absolute;
+    top:58px;
+    right:0;
+    left:0;
+
+    background:#fff;
+
+    border-radius:14px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.14);
+
+    display:none;
+
+    overflow:hidden;
+
+    z-index:700;
+}
+
+.search-results.show{
+    display:block;
+}
+
+.search-result{
+    display:flex;
+    align-items:center;
+    gap:13px;
+
+    padding:12px 15px;
+
+    border-bottom:1px solid #eee;
+
+    cursor:pointer;
+}
+
+.search-result:hover{
+    background:#fafafa;
+}
+
+.search-result-image{
+    width:50px;
+    height:50px;
+
+    border-radius:9px;
+
+    background:#f4f4f4;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+.search-result-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.search-result-info{
     flex:1;
 }
 
-.search input{
-    width:100%;
-    border:0;
-    outline:0;
-    background:#f1f2f5;
-    border-radius:14px;
-    padding:14px 18px;
-    font-size:14px;
-}
-
-.actions{
-    display:flex;
-    gap:8px;
-}
-
-.btn{
-    border:0;
-    border-radius:11px;
-    padding:11px 15px;
-}
-
-.login{
-    background:#fdeaf1;
-    color:#e91e63;
-}
-
-.cart-btn{
-    background:#e91e63;
-    color:white;
-}
-
-.cart-count{
-    background:white;
-    color:#e91e63;
-    border-radius:20px;
-    padding:2px 7px;
-    margin-right:5px;
-}
-
-/* NAV */
-
-nav{
-    border-top:1px solid #eee;
-}
-
-.nav{
-    max-width:1250px;
-    margin:auto;
-    padding:11px 15px;
-    display:flex;
-    gap:28px;
-    overflow:auto;
-    white-space:nowrap;
-}
-
-.nav button{
-    border:0;
-    background:none;
-    color:#555;
+.search-result-info strong{
+    display:block;
     font-size:13px;
 }
 
-.nav button:hover{
-    color:#e91e63;
+.search-result-info small{
+    color:var(--red);
 }
 
-/* MAIN */
 
-main{
-    max-width:1250px;
-    margin:auto;
-    padding:25px 15px;
+/* HEADER ACTIONS */
+
+.header-actions{
+    display:flex;
+    align-items:center;
+    gap:9px;
 }
 
-/* HERO */
+.header-action{
+    height:48px;
 
-.hero{
-    min-height:330px;
-    border-radius:25px;
-    padding:45px;
-    color:white;
+    border:1px solid var(--border);
 
-    background:
-    radial-gradient(
-        circle at 80% 20%,
-        #e91e6345,
-        transparent 30%
-    ),
-    linear-gradient(
-        120deg,
-        #15161b,
-        #363b48
-    );
+    background:#fff;
+
+    border-radius:11px;
+
+    padding:0 14px;
 
     display:flex;
-    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+
+    transition:.2s;
+}
+
+.header-action:hover{
+    border-color:var(--red);
+    color:var(--red);
+}
+
+.cart-action{
+    background:var(--red);
+    color:#fff;
+    border-color:var(--red);
+}
+
+.cart-action:hover{
+    background:var(--red-dark);
+    color:#fff;
+}
+
+.cart-count{
+    background:#fff;
+    color:var(--red);
+
+    min-width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:11px;
+    font-weight:800;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav{
+    background:#fff;
+    border-top:1px solid #f0f0f0;
+}
+
+.nav-inner{
+    max-width:1400px;
+    margin:auto;
+    padding:0 20px;
+
+    display:flex;
     align-items:center;
 }
 
+.category-menu{
+    height:48px;
+
+    border:none;
+
+    background:none;
+
+    font-weight:700;
+
+    padding:0 17px;
+
+    border-left:1px solid var(--border);
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.category-menu:hover{
+    color:var(--red);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+
+    overflow:auto;
+
+    scrollbar-width:none;
+}
+
+.nav-links::-webkit-scrollbar{
+    display:none;
+}
+
+.nav-link{
+    border:none;
+    background:none;
+
+    height:48px;
+
+    padding:0 17px;
+
+    color:#555;
+
+    white-space:nowrap;
+
+    font-size:13px;
+}
+
+.nav-link:hover{
+    color:var(--red);
+}
+
+.nav-link.sale{
+    color:var(--red);
+    font-weight:700;
+}
+
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:25px 20px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+    display:grid;
+    grid-template-columns:1.7fr 1fr;
+    gap:15px;
+
+    min-height:370px;
+}
+
+.hero-main{
+    position:relative;
+    overflow:hidden;
+
+    border-radius:25px;
+
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,255,255,.16),
+            transparent 30%
+        ),
+        linear-gradient(
+            120deg,
+            #151515,
+            #363636
+        );
+
+    color:#fff;
+
+    padding:55px;
+
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:560px;
+    position:relative;
+    z-index:2;
+}
+
+.hero-badge{
+    display:inline-flex;
+
+    background:#ffffff18;
+
+    border:1px solid #ffffff25;
+
+    border-radius:50px;
+
+    padding:7px 13px;
+
+    font-size:12px;
+
+    margin-bottom:18px;
+}
+
 .hero h1{
-    font-size:38px;
+    font-size:42px;
+    line-height:1.45;
+
     margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#ff5267;
 }
 
 .hero p{
     color:#ddd;
+
     line-height:2;
-    margin-bottom:25px;
+
+    margin-bottom:28px;
 }
 
-.hero button{
-    border:0;
-    background:#e91e63;
-    color:white;
-    padding:14px 25px;
-    border-radius:12px;
-    font-weight:bold;
+.hero-buttons{
+    display:flex;
+    gap:10px;
 }
 
-.hero-art{
-    font-size:130px;
+.primary-btn{
+    border:none;
+
+    background:var(--red);
+    color:#fff;
+
+    padding:13px 24px;
+
+    border-radius:11px;
+
+    font-weight:700;
 }
 
-/* SECTION */
+.primary-btn:hover{
+    background:var(--red-dark);
+}
 
-.section-head{
+.secondary-btn{
+    border:1px solid #ffffff30;
+
+    background:#ffffff0d;
+
+    color:#fff;
+
+    padding:13px 24px;
+
+    border-radius:11px;
+}
+
+.hero-product{
+    position:absolute;
+
+    left:30px;
+    bottom:-20px;
+
+    width:370px;
+    height:370px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    opacity:.95;
+}
+
+.hero-product img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    filter:drop-shadow(0 25px 25px rgba(0,0,0,.45));
+}
+
+.hero-product-placeholder{
+    font-size:170px;
+}
+
+
+/* HERO SIDE */
+
+.hero-side{
+    display:grid;
+    grid-template-rows:1fr 1fr;
+    gap:15px;
+}
+
+.hero-small{
+    border-radius:22px;
+    overflow:hidden;
+
+    padding:28px;
+
+    color:#fff;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin:35px 0 17px;
-}
 
-.section-head h2{
-    font-size:22px;
-}
-
-/* CATEGORIES */
-
-.categories{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:13px;
-}
-
-.category{
-    background:white;
-    border:1px solid #e7e8ec;
-    border-radius:17px;
-    padding:20px 8px;
-    text-align:center;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.category:hover{
-    transform:translateY(-4px);
-    border-color:#e91e63;
-}
-
-.category-icon{
-    display:block;
-    font-size:35px;
-    margin-bottom:10px;
-}
-
-.category-name{
-    font-size:12px;
-    font-weight:bold;
-}
-
-/* FILTER */
-
-.filters select{
-    border:1px solid #ddd;
-    background:white;
-    border-radius:10px;
-    padding:9px 12px;
-}
-
-/* PRODUCTS */
-
-.products{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:17px;
-}
-
-.product{
-    background:white;
-    border:1px solid #e7e8ec;
-    border-radius:19px;
-    overflow:hidden;
-    transition:.2s;
-}
-
-.product:hover{
-    transform:translateY(-5px);
-    box-shadow:0 12px 35px rgba(0,0,0,.08);
-}
-
-.product-image{
-    height:210px;
-    background:linear-gradient(
-        135deg,
-        #eef0f3,
-        #fff
-    );
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    font-size:80px;
     position:relative;
 }
 
-.discount{
-    position:absolute;
-    right:11px;
-    top:11px;
-
-    background:#e91e63;
-    color:white;
-
-    padding:5px 9px;
-    border-radius:8px;
-
-    font-size:11px;
+.hero-small:first-child{
+    background:linear-gradient(120deg,#e91e63,#8e153d);
 }
 
-.favorite{
-    position:absolute;
-    left:11px;
-    top:11px;
-
-    width:35px;
-    height:35px;
-
-    border:0;
-    border-radius:50%;
-    background:white;
-
-    font-size:18px;
+.hero-small:last-child{
+    background:linear-gradient(120deg,#243b55,#141e30);
 }
 
-.product-body{
-    padding:15px;
+.hero-small h3{
+    font-size:20px;
+    margin-bottom:8px;
 }
 
-.product-title{
-    font-size:14px;
-    line-height:1.8;
-    height:50px;
-    cursor:pointer;
+.hero-small p{
+    font-size:12px;
+    opacity:.85;
 }
 
-.price{
-    font-size:17px;
-    font-weight:bold;
+.hero-small-icon{
+    font-size:65px;
 }
 
-.old-price{
-    color:#aaa;
-    text-decoration:line-through;
-    font-size:11px;
-    margin-right:8px;
-}
 
-.add-cart{
-    width:100%;
-    border:0;
-    background:#17181d;
-    color:white;
-    padding:11px;
-    border-radius:10px;
-    margin-top:13px;
-}
-
-.add-cart:hover{
-    background:#e91e63;
-}
-
-/* FEATURES */
+/* =========================================================
+   TRUST FEATURES
+   ========================================================= */
 
 .features{
+    margin-top:18px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:17px;
+
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:13px;
-    margin-top:35px;
+
+    box-shadow:0 2px 12px rgba(0,0,0,.03);
 }
 
 .feature{
-    background:white;
-    padding:20px;
-    border-radius:16px;
-    text-align:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:13px;
+
+    border-left:1px solid #eee;
+}
+
+.feature:last-child{
+    border-left:none;
 }
 
 .feature-icon{
-    font-size:28px;
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    background:#fff0f2;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:21px;
 }
 
 .feature strong{
     display:block;
-    margin:8px 0;
+    font-size:13px;
 }
 
 .feature small{
+    display:block;
+    color:#888;
+    margin-top:3px;
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.section{
+    margin-top:40px;
+}
+
+.section-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:18px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.section-title h2{
+    font-size:21px;
+}
+
+.section-title-line{
+    width:4px;
+    height:24px;
+
+    border-radius:4px;
+
+    background:var(--red);
+}
+
+.section-more{
+    border:none;
+    background:none;
+
+    color:var(--red);
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+
+/* =========================================================
+   CATEGORIES
+   ========================================================= */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(8,1fr);
+    gap:12px;
+}
+
+.category-card{
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    padding:20px 10px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.category-card:hover{
+    transform:translateY(-5px);
+
+    border-color:#ef394e44;
+
+    box-shadow:var(--shadow);
+}
+
+.category-card-icon{
+    width:62px;
+    height:62px;
+
+    margin:0 auto 12px;
+
+    background:#f7f7f7;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+}
+
+.category-card strong{
+    font-size:12px;
+}
+
+
+/* =========================================================
+   SPECIAL OFFER
+   ========================================================= */
+
+.offer{
+    background:
+        linear-gradient(
+            100deg,
+            #171717,
+            #272727
+        );
+
+    border-radius:24px;
+
+    padding:25px;
+
+    color:#fff;
+
+    display:grid;
+    grid-template-columns:1fr 2fr;
+
+    align-items:center;
+
+    gap:25px;
+}
+
+.offer-info h2{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.offer-info p{
+    color:#bbb;
+    font-size:13px;
+}
+
+.timer{
+    display:flex;
+    gap:8px;
+
+    margin-top:20px;
+}
+
+.timer-box{
+    background:#fff;
+    color:#222;
+
+    width:52px;
+    height:52px;
+
+    border-radius:10px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.timer-box strong{
+    font-size:17px;
+}
+
+.timer-box small{
+    font-size:8px;
     color:#777;
 }
 
-/* FOOTER */
-
-footer{
-    margin-top:45px;
-    background:#17181d;
-    color:white;
-}
-
-.footer{
-    max-width:1250px;
-    margin:auto;
-    padding:40px 15px;
-
+.offer-products{
     display:grid;
-    grid-template-columns:2fr 1fr 1fr;
-    gap:30px;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
 }
 
-.footer p,
-.footer a{
-    color:#aaa;
+
+/* =========================================================
+   PRODUCT CARDS
+   ========================================================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:14px;
+}
+
+.product-card{
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    transition:.25s;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.product-image{
+    height:235px;
+
+    background:#f8f8f8;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    overflow:hidden;
+}
+
+.product-image img{
+    width:90%;
+    height:90%;
+
+    object-fit:contain;
+
+    transition:.3s;
+}
+
+.product-card:hover .product-image img{
+    transform:scale(1.06);
+}
+
+.product-placeholder{
+    font-size:85px;
+}
+
+.product-badge{
+    position:absolute;
+
+    right:10px;
+    top:10px;
+
+    background:var(--red);
+    color:#fff;
+
+    border-radius:7px;
+
+    padding:5px 8px;
+
+    font-size:10px;
+
+    font-weight:700;
+}
+
+.product-badge.green{
+    background:var(--green);
+}
+
+.product-favorite{
+    position:absolute;
+
+    left:10px;
+    top:10px;
+
+    width:35px;
+    height:35px;
+
+    border:none;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+
+    font-size:17px;
+
+    z-index:3;
+}
+
+.product-favorite.active{
+    color:var(--red);
+}
+
+.product-info{
+    padding:14px;
+}
+
+.product-brand{
+    font-size:10px;
+    color:#999;
+    margin-bottom:7px;
+}
+
+.product-name{
+    height:48px;
+
+    line-height:1.8;
+
     font-size:13px;
-    line-height:2.2;
+
+    overflow:hidden;
+
+    cursor:pointer;
 }
 
-.copyright{
-    text-align:center;
-    border-top:1px solid #333;
-    padding:15px;
-    color:#888;
+.rating{
+    margin:8px 0;
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+
     font-size:11px;
 }
 
-/* MODAL */
+.stars{
+    color:#f59e0b;
+}
 
-.modal{
-    display:none;
+.rating-count{
+    color:#999;
+}
 
-    position:fixed;
-    inset:0;
-
-    background:rgba(0,0,0,.65);
-
-    z-index:1000;
-
-    justify-content:center;
+.product-prices{
+    display:flex;
     align-items:center;
-
-    padding:15px;
-}
-
-.modal.active{
-    display:flex;
-}
-
-.modal-box{
-    background:white;
-
-    width:min(700px,100%);
-
-    max-height:90vh;
-
-    overflow:auto;
-
-    border-radius:20px;
-
-    padding:22px;
-}
-
-.modal-header{
-    display:flex;
     justify-content:space-between;
+
+    margin-top:9px;
+}
+
+.discount-percent{
+    background:#fff0f2;
+
+    color:var(--red);
+
+    padding:3px 6px;
+
+    border-radius:6px;
+
+    font-size:10px;
+
+    font-weight:700;
+}
+
+.price{
+    font-size:16px;
+    font-weight:800;
+}
+
+.price-unit{
+    font-size:9px;
+    font-weight:400;
+}
+
+.old-price{
+    font-size:10px;
+    color:#aaa;
+    text-decoration:line-through;
+    margin-top:3px;
+}
+
+.add-button{
+    width:100%;
+
+    margin-top:12px;
+
+    height:42px;
+
+    border:1px solid #eee;
+
+    border-radius:10px;
+
+    background:#fff;
+
+    color:#222;
+
+    font-weight:600;
+
+    transition:.2s;
+}
+
+.add-button:hover{
+    background:var(--red);
+    border-color:var(--red);
+    color:#fff;
+}
+
+
+/* =========================================================
+   BRAND SECTION
+   ========================================================= */
+
+.brands{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+}
+
+.brand{
+    height:90px;
+
+    background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:15px;
+
+    display:flex;
     align-items:center;
+    justify-content:center;
+
+    font-size:19px;
+
+    font-weight:900;
+
+    color:#555;
+
+    transition:.2s;
+}
+
+.brand:hover{
+    color:var(--red);
+    border-color:#ef394e55;
+}
+
+
+/* =========================================================
+   NEWSLETTER
+   ========================================================= */
+
+.newsletter{
+    margin-top:40px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    padding:35px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:25px;
+}
+
+.newsletter h2{
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.newsletter p{
+    color:#777;
+    font-size:13px;
+}
+
+.newsletter-form{
+    display:flex;
+    gap:8px;
+
+    width:450px;
+}
+
+.newsletter-form input{
+    flex:1;
+
+    border:1px solid var(--border);
+
+    outline:none;
+
+    border-radius:10px;
+
+    padding:13px;
+}
+
+.newsletter-form button{
+    border:none;
+
+    background:var(--red);
+    color:#fff;
+
+    padding:0 22px;
+
+    border-radius:10px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+    background:#171717;
+
+    color:#fff;
+
+    margin-top:50px;
+}
+
+.footer-main{
+    max-width:1400px;
+    margin:auto;
+
+    padding:50px 20px;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+    gap:45px;
+}
+
+.footer-logo{
+    color:var(--red);
+
+    font-size:27px;
+
+    font-weight:900;
 
     margin-bottom:15px;
 }
 
-.close{
-    border:0;
-    background:#f1f2f4;
-    border-radius:9px;
-    padding:8px 12px;
+.footer-about{
+    color:#999;
+
+    line-height:2;
+
+    font-size:13px;
+
+    max-width:430px;
 }
 
-/* CART */
+.footer-column h3{
+    font-size:15px;
 
-.cart-item{
+    margin-bottom:17px;
+}
+
+.footer-column a{
+    display:block;
+
+    color:#999;
+
+    font-size:12px;
+
+    margin:11px 0;
+}
+
+.footer-column a:hover{
+    color:#fff;
+}
+
+.footer-bottom{
+    border-top:1px solid #303030;
+
+    padding:18px 20px;
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:11px;
+}
+
+
+/* =========================================================
+   CART DRAWER
+   ========================================================= */
+
+.overlay{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.55);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.25s;
+
+    z-index:900;
+}
+
+.overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.cart-drawer{
+    position:fixed;
+
+    top:0;
+    right:-470px;
+
+    width:470px;
+    max-width:100%;
+
+    height:100vh;
+
+    background:#fff;
+
+    z-index:1000;
+
+    display:flex;
+    flex-direction:column;
+
+    transition:.3s;
+
+    box-shadow:-10px 0 40px rgba(0,0,0,.15);
+}
+
+.cart-drawer.active{
+    right:0;
+}
+
+.cart-header{
+    height:75px;
+
+    padding:0 20px;
+
+    border-bottom:1px solid var(--border);
+
     display:flex;
     align-items:center;
+    justify-content:space-between;
+}
+
+.close-button{
+    border:none;
+
+    background:#f2f2f2;
+
+    width:38px;
+    height:38px;
+
+    border-radius:9px;
+}
+
+.cart-body{
+    flex:1;
+
+    overflow:auto;
+
+    padding:15px 20px;
+}
+
+.empty-cart{
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    color:#888;
+}
+
+.empty-cart-icon{
+    font-size:70px;
+}
+
+.cart-item{
+    display:grid;
+
+    grid-template-columns:70px 1fr auto;
+
     gap:12px;
 
     padding:15px 0;
@@ -483,114 +1341,396 @@ footer{
     border-bottom:1px solid #eee;
 }
 
-.cart-image{
-    font-size:38px;
+.cart-item-image{
+    width:70px;
+    height:70px;
+
+    background:#f7f7f7;
+
+    border-radius:10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
 }
 
-.cart-info{
-    flex:1;
+.cart-item-image img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 
-.cart-info strong{
-    font-size:13px;
-}
-
-.cart-info small{
+.cart-item-info strong{
     display:block;
-    color:#777;
-    margin-top:5px;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+.cart-item-price{
+    color:var(--red);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-top:6px;
 }
 
 .quantity{
     display:flex;
+
     align-items:center;
+
     gap:7px;
+
+    margin-top:9px;
 }
 
 .quantity button{
-    width:28px;
-    height:28px;
+    width:27px;
+    height:27px;
 
-    border:1px solid #ddd;
+    border:1px solid var(--border);
 
-    background:white;
+    background:#fff;
 
     border-radius:7px;
 }
 
-.cart-total{
-    display:flex;
-    justify-content:space-between;
+.remove-item{
+    border:none;
+    background:none;
 
-    font-size:18px;
-    font-weight:bold;
+    color:#aaa;
 
-    padding-top:18px;
+    font-size:12px;
 }
 
-.checkout{
+.cart-footer{
+    padding:20px;
+
+    border-top:1px solid var(--border);
+}
+
+.summary-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
+    font-size:13px;
+}
+
+.summary-row.total{
+    font-size:18px;
+
+    font-weight:800;
+
+    margin-top:15px;
+
+    padding-top:15px;
+
+    border-top:1px solid #eee;
+}
+
+.checkout-button{
     width:100%;
 
-    border:0;
+    height:50px;
 
-    background:#e91e63;
-    color:white;
+    border:none;
+
+    background:var(--red);
+
+    color:#fff;
 
     border-radius:11px;
 
-    padding:14px;
-
     margin-top:15px;
+
+    font-weight:700;
 }
 
-/* PRODUCT DETAIL */
 
-.detail{
+/* =========================================================
+   PRODUCT MODAL
+   ========================================================= */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.6);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:1100;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.25s;
+}
+
+.modal.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.product-modal{
+    width:min(1000px,100%);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    position:relative;
+}
+
+.modal-close{
+    position:absolute;
+
+    left:18px;
+    top:18px;
+
+    width:38px;
+    height:38px;
+
+    border:none;
+
+    background:#f2f2f2;
+
+    border-radius:50%;
+
+    z-index:4;
+}
+
+.product-detail{
     display:grid;
+
     grid-template-columns:1fr 1fr;
-    gap:25px;
 }
 
 .detail-image{
-    min-height:350px;
+    min-height:500px;
 
-    background:#f2f3f5;
+    background:#f7f7f7;
 
-    border-radius:18px;
+    display:flex;
 
-    display:grid;
-    place-items:center;
+    align-items:center;
+    justify-content:center;
 
-    font-size:140px;
+    padding:40px;
+}
+
+.detail-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+}
+
+.detail-placeholder{
+    font-size:170px;
 }
 
 .detail-info{
-    padding:10px;
+    padding:50px 35px;
+}
+
+.detail-brand{
+    color:#999;
+
+    font-size:12px;
+
+    margin-bottom:12px;
 }
 
 .detail-info h2{
-    line-height:1.8;
+    font-size:23px;
+
+    line-height:1.7;
+}
+
+.detail-rating{
+    margin:15px 0;
+
+    display:flex;
+
+    gap:8px;
 }
 
 .detail-price{
-    font-size:25px;
+    font-size:27px;
 
-    font-weight:bold;
+    font-weight:900;
 
-    color:#e91e63;
+    color:var(--red);
+
+    margin-top:20px;
+}
+
+.detail-old-price{
+    color:#aaa;
+
+    text-decoration:line-through;
+
+    margin-top:5px;
+
+    font-size:12px;
+}
+
+.detail-description{
+    color:#777;
+
+    font-size:13px;
+
+    line-height:2;
 
     margin:22px 0;
 }
 
-/* MOBILE */
+.stock{
+    color:var(--green);
 
-@media(max-width:950px){
+    background:#effaf2;
+
+    display:inline-block;
+
+    padding:6px 10px;
+
+    border-radius:7px;
+
+    font-size:11px;
+}
+
+.detail-actions{
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.detail-actions button{
+    flex:1;
+
+    height:48px;
+
+    border-radius:10px;
+
+    font-weight:700;
+}
+
+.buy-now{
+    background:var(--red);
+    color:#fff;
+    border:none;
+}
+
+.detail-cart{
+    background:#fff;
+
+    border:1px solid var(--red);
+
+    color:var(--red);
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast{
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    background:#222;
+
+    color:#fff;
+
+    padding:13px 18px;
+
+    border-radius:11px;
+
+    z-index:2000;
+
+    transform:translateY(100px);
+
+    opacity:0;
+
+    transition:.3s;
+
+    font-size:13px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.toast.show{
+    transform:translateY(0);
+
+    opacity:1;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media(max-width:1200px){
 
     .products{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:repeat(4,1fr);
     }
 
     .categories{
+        grid-template-columns:repeat(6,1fr);
+    }
+
+}
+
+@media(max-width:900px){
+
+    .header-main{
+        flex-wrap:wrap;
+    }
+
+    .search-box{
+        order:5;
+        flex-basis:100%;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+    }
+
+    .hero-side{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows:none;
+    }
+
+    .products{
         grid-template-columns:repeat(3,1fr);
     }
 
@@ -598,54 +1738,202 @@ footer{
         grid-template-columns:repeat(2,1fr);
     }
 
+    .feature:nth-child(2){
+        border-left:none;
+    }
+
+    .feature{
+        padding:10px;
+    }
+
+    .offer{
+        grid-template-columns:1fr;
+    }
+
+    .brands{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .footer-main{
+        grid-template-columns:1fr 1fr;
+    }
+
 }
 
 @media(max-width:650px){
 
-    .topbar{
+    .top-bar{
         display:none;
     }
 
-    .header{
-        flex-wrap:wrap;
+    .header-main{
+        padding:12px;
+        gap:10px;
     }
 
-    .search{
-        flex-basis:100%;
-        order:3;
+    .logo{
+        width:135px;
     }
 
-    .login{
+    .logo img{
+        height:45px;
+    }
+
+    .logo-text{
+        font-size:22px;
+    }
+
+    .header-actions{
+        margin-right:auto;
+    }
+
+    .header-action{
+        padding:0 10px;
+    }
+
+    .header-action span.label{
         display:none;
+    }
+
+    .nav-inner{
+        padding:0 10px;
+    }
+
+    .category-menu{
+        padding:0 10px;
+    }
+
+    .nav-link{
+        padding:0 12px;
+    }
+
+    .container{
+        padding:15px 10px;
     }
 
     .hero{
-        padding:30px 22px;
+        min-height:320px;
+    }
+
+    .hero-main{
+        padding:30px 23px;
     }
 
     .hero h1{
-        font-size:26px;
+        font-size:28px;
     }
 
-    .hero-art{
-        display:none;
+    .hero-product{
+        width:220px;
+        height:220px;
+
+        left:-30px;
+        bottom:-20px;
+
+        opacity:.35;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        width:170px;
+    }
+
+    .hero-side{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .feature{
+        justify-content:flex-start;
+        border-left:none;
+    }
+
+    .categories{
+        grid-template-columns:repeat(4,1fr);
+        gap:8px;
+    }
+
+    .category-card{
+        padding:12px 5px;
+    }
+
+    .category-card-icon{
+        width:48px;
+        height:48px;
+        font-size:23px;
+    }
+
+    .category-card strong{
+        font-size:10px;
     }
 
     .products{
         grid-template-columns:repeat(2,1fr);
-        gap:10px;
+        gap:9px;
     }
 
-    .categories{
-        grid-template-columns:repeat(2,1fr);
+    .product-image{
+        height:180px;
     }
 
-    .footer{
+    .product-placeholder{
+        font-size:65px;
+    }
+
+    .product-info{
+        padding:11px;
+    }
+
+    .product-name{
+        font-size:11px;
+    }
+
+    .price{
+        font-size:13px;
+    }
+
+    .old-price{
+        font-size:9px;
+    }
+
+    .add-button{
+        font-size:11px;
+    }
+
+    .offer-products{
         grid-template-columns:1fr;
     }
 
-    .detail{
+    .newsletter{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .newsletter-form{
+        width:100%;
+    }
+
+    .footer-main{
         grid-template-columns:1fr;
+    }
+
+    .product-detail{
+        grid-template-columns:1fr;
+    }
+
+    .detail-image{
+        min-height:300px;
+    }
+
+    .detail-info{
+        padding:30px 20px;
+    }
+
+    .detail-placeholder{
+        font-size:110px;
     }
 
 }
@@ -657,66 +1945,114 @@ footer{
 <body>
 
 
-<div class="topbar">
+<!-- ======================================================
+     TOP BAR
+     ====================================================== -->
 
-<span>
-🚚 ارسال سریع سفارش‌ها
-</span>
+<div class="top-bar">
 
-<span>
-💬 پشتیبانی آنلاین
-</span>
+<div class="top-bar-inner">
+
+<div class="top-links">
+
+<span>🚚 ارسال سریع سفارش‌ها</span>
+
+<span>🛡️ ضمانت اصالت کالا</span>
+
+<span>💬 پشتیبانی آنلاین</span>
+
+</div>
+
+<div>
+رضاوی‌شاپ؛ خرید مطمئن و سریع
+</div>
+
+</div>
 
 </div>
 
 
-<header>
+<!-- ======================================================
+     HEADER
+     ====================================================== -->
+
+<header class="header">
+
+<div class="header-main">
 
 
-<div class="header">
+<div class="logo">
 
+<!--
+اگر لوگوی خودت را داری:
+فایل را داخل images/logo.png قرار بده
+و این بخش را فعال کن.
+-->
 
-<a
-class="logo"
-href="#"
->
+<!--
+<img src="images/logo.png" alt="RazaviShop">
+-->
+
+<div class="logo-text">
 Razavi<span>Shop</span>
-</a>
+</div>
+
+</div>
 
 
-<div class="search">
+<div class="search-box">
+
+<span class="search-icon">⌕</span>
 
 <input
-id="search"
+id="searchInput"
+type="text"
 placeholder="جستجوی محصول، برند یا دسته‌بندی..."
+autocomplete="off"
 >
+
+<div
+class="search-results"
+id="searchResults"
+></div>
 
 </div>
 
 
-<div class="actions">
+<div class="header-actions">
 
 
 <button
-class="btn login"
+class="header-action"
+onclick="showLogin()"
 >
-ورود / ثبت‌نام
+
+👤
+
+<span class="label">
+ورود
+</span>
+
 </button>
 
 
 <button
-class="btn cart-btn"
+class="header-action cart-action"
 onclick="openCart()"
 >
 
-🛒 سبد خرید
+🛒
 
-<b
+<span class="label">
+سبد خرید
+</span>
+
+<span
 class="cart-count"
 id="cartCount"
 >
 0
-</b>
+</span>
 
 </button>
 
@@ -726,215 +2062,468 @@ id="cartCount"
 
 </div>
 
-
-<nav>
 
 <div class="nav">
 
+<div class="nav-inner">
+
 
 <button
-onclick="setCategory('همه')"
+class="category-menu"
+onclick="scrollToSection('categories')"
 >
-همه کالاها
+☰
+دسته‌بندی کالاها
 </button>
 
 
+<div class="nav-links">
+
 <button
+class="nav-link"
+onclick="setCategory('همه')"
+>
+همه محصولات
+</button>
+
+<button
+class="nav-link"
 onclick="setCategory('دیجیتال')"
 >
 کالای دیجیتال
 </button>
 
-
 <button
+class="nav-link"
 onclick="setCategory('ابزار')"
 >
 ابزار
 </button>
 
-
 <button
-onclick="setCategory('موبایل')"
->
-موبایل
-</button>
-
-
-<button
+class="nav-link"
 onclick="setCategory('گیمینگ')"
 >
 گیمینگ
 </button>
 
+<button
+class="nav-link"
+onclick="setCategory('موبایل')"
+>
+موبایل
+</button>
 
 <button
+class="nav-link"
 onclick="setCategory('خانه')"
 >
 خانه
 </button>
 
-
 <button
+class="nav-link sale"
 onclick="showDiscounts()"
 >
 🔥 تخفیف‌ها
 </button>
 
+</div>
 
 </div>
 
-</nav>
-
+</div>
 
 </header>
 
 
-<main>
+<!-- ======================================================
+     MAIN
+     ====================================================== -->
 
+<main class="container">
+
+
+<!-- HERO -->
 
 <section class="hero">
 
 
-<div>
+<div class="hero-main">
+
+
+<div class="hero-content">
+
+
+<div class="hero-badge">
+🔥 پیشنهادهای ویژه RazaviShop
+</div>
+
 
 <h1>
-خرید هوشمند، ساده و سریع
+خرید هوشمند،
+<br>
+با <span>قیمت بهتر</span>
 </h1>
 
 
 <p>
-محصولات دیجیتال، ابزار و لوازم کاربردی
-<br>
-با تجربه‌ای مدرن و حرفه‌ای.
+جدیدترین محصولات دیجیتال، ابزار و لوازم کاربردی
+را با تجربه‌ای سریع و حرفه‌ای خریداری کنید.
 </p>
 
 
+<div class="hero-buttons">
+
 <button
-onclick="scrollProducts()"
+class="primary-btn"
+onclick="scrollToSection('productsSection')"
 >
 مشاهده محصولات
 </button>
 
 
+<button
+class="secondary-btn"
+onclick="showDiscounts()"
+>
+مشاهده تخفیف‌ها
+</button>
+
 </div>
 
 
-<div class="hero-art">
-🛍️
+</div>
+
+
+<div class="hero-product">
+
+<!-- بعداً عکس واقعی محصول اینجا قرار می‌گیرد -->
+
+<img
+src="images/products/hopestar-a65.png"
+alt="Hopestar A65"
+onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+>
+
+<div
+class="hero-product-placeholder"
+style="display:none;"
+>
+🔊
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="hero-side">
+
+
+<div class="hero-small">
+
+<div>
+
+<h3>
+اسپیکر و صوتی
+</h3>
+
+<p>
+صدای قدرتمند برای هرجا
+</p>
+
+</div>
+
+<div class="hero-small-icon">
+🔊
+</div>
+
+</div>
+
+
+<div class="hero-small">
+
+<div>
+
+<h3>
+ابزار حرفه‌ای
+</h3>
+
+<p>
+برای کارهای دقیق و حرفه‌ای
+</p>
+
+</div>
+
+<div class="hero-small-icon">
+🧰
+</div>
+
+</div>
+
+
 </div>
 
 
 </section>
 
 
-<div class="section-head">
+<!-- FEATURES -->
 
-<h2>
-دسته‌بندی‌ها
-</h2>
+<section class="features">
 
-<span>
-انتخاب سریع
-</span>
+
+<div class="feature">
+
+<div class="feature-icon">
+🚚
+</div>
+
+<div>
+
+<strong>
+ارسال سریع
+</strong>
+
+<small>
+تحویل سریع سفارش
+</small>
+
+</div>
 
 </div>
 
 
-<section class="categories">
+<div class="feature">
+
+<div class="feature-icon">
+✓
+</div>
+
+<div>
+
+<strong>
+اصالت کالا
+</strong>
+
+<small>
+محصولات مطمئن
+</small>
+
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+💳
+</div>
+
+<div>
+
+<strong>
+پرداخت امن
+</strong>
+
+<small>
+قابل اتصال به درگاه
+</small>
+
+</div>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+☎
+</div>
+
+<div>
+
+<strong>
+پشتیبانی
+</strong>
+
+<small>
+پاسخ‌گویی سریع
+</small>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+<!-- ======================================================
+     CATEGORIES
+     ====================================================== -->
+
+<section
+class="section"
+id="categories"
+>
+
+
+<div class="section-head">
+
+<div class="section-title">
+
+<div class="section-title-line"></div>
+
+<h2>
+دسته‌بندی محصولات
+</h2>
+
+</div>
+
+<button
+class="section-more"
+onclick="setCategory('همه')"
+>
+مشاهده همه
+</button>
+
+</div>
+
+
+<div class="categories">
 
 
 <div
-class="category"
+class="category-card"
 onclick="setCategory('دیجیتال')"
 >
 
-<span class="category-icon">
+<div class="category-card-icon">
 🔊
-</span>
+</div>
 
-<span class="category-name">
-هدفون و اسپیکر
-</span>
+<strong>
+اسپیکر و هدفون
+</strong>
 
 </div>
 
 
 <div
-class="category"
+class="category-card"
 onclick="setCategory('موبایل')"
 >
 
-<span class="category-icon">
+<div class="category-card-icon">
 📱
-</span>
+</div>
 
-<span class="category-name">
-موبایل
-</span>
+<strong>
+موبایل و لوازم جانبی
+</strong>
 
 </div>
 
 
 <div
-class="category"
+class="category-card"
 onclick="setCategory('ابزار')"
 >
 
-<span class="category-icon">
+<div class="category-card-icon">
 🧰
-</span>
+</div>
 
-<span class="category-name">
+<strong>
 ابزار
-</span>
+</strong>
 
 </div>
 
 
 <div
-class="category"
-onclick="setCategory('کامپیوتر')"
->
-
-<span class="category-icon">
-💻
-</span>
-
-<span class="category-name">
-کامپیوتر
-</span>
-
-</div>
-
-
-<div
-class="category"
+class="category-card"
 onclick="setCategory('گیمینگ')"
 >
 
-<span class="category-icon">
+<div class="category-card-icon">
 🎮
-</span>
+</div>
 
-<span class="category-name">
+<strong>
 گیمینگ
-</span>
+</strong>
 
 </div>
 
 
 <div
-class="category"
+class="category-card"
+onclick="setCategory('کامپیوتر')"
+>
+
+<div class="category-card-icon">
+💻
+</div>
+
+<strong>
+کامپیوتر
+</strong>
+
+</div>
+
+
+<div
+class="category-card"
 onclick="setCategory('خانه')"
 >
 
-<span class="category-icon">
+<div class="category-card-icon">
 💡
-</span>
+</div>
 
-<span class="category-name">
-خانه
-</span>
+<strong>
+لوازم خانه
+</strong>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="setCategory('دیجیتال')"
+>
+
+<div class="category-card-icon">
+⌚
+</div>
+
+<strong>
+گجت
+</strong>
+
+</div>
+
+
+<div
+class="category-card"
+onclick="setCategory('همه')"
+>
+
+<div class="category-card-icon">
+🛍️
+</div>
+
+<strong>
+همه محصولات
+</strong>
+
+</div>
+
 
 </div>
 
@@ -942,19 +2531,122 @@ onclick="setCategory('خانه')"
 </section>
 
 
+<!-- ======================================================
+     SPECIAL OFFER
+     ====================================================== -->
+
+<section class="section">
+
+
+<div class="offer">
+
+
+<div class="offer-info">
+
+<h2>
+پیشنهاد ویژه 🔥
+</h2>
+
+<p>
+تخفیف‌های محدود را قبل از پایان زمان از دست ندهید.
+</p>
+
+
+<div class="timer">
+
+
+<div class="timer-box">
+
+<strong id="hours">
+08
+</strong>
+
+<small>
+ساعت
+</small>
+
+</div>
+
+
+<div class="timer-box">
+
+<strong id="minutes">
+45
+</strong>
+
+<small>
+دقیقه
+</small>
+
+</div>
+
+
+<div class="timer-box">
+
+<strong id="seconds">
+20
+</strong>
+
+<small>
+ثانیه
+</small>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<div
+class="offer-products"
+id="offerProducts"
+>
+</div>
+
+
+</div>
+
+
+</section>
+
+
+<!-- ======================================================
+     PRODUCTS
+     ====================================================== -->
+
+<section
+class="section"
+id="productsSection"
+>
+
+
 <div class="section-head">
 
 
-<h2>
-محصولات
+<div class="section-title">
+
+<div class="section-title-line"></div>
+
+<h2 id="productsTitle">
+محصولات منتخب
 </h2>
 
+</div>
 
-<div class="filters">
 
 <select
-id="sort"
+id="sortSelect"
 onchange="renderProducts()"
+style="
+border:1px solid #ddd;
+background:#fff;
+padding:9px 12px;
+border-radius:9px;
+outline:none;
+"
 >
 
 <option value="default">
@@ -975,86 +2667,108 @@ onchange="renderProducts()"
 
 </select>
 
-</div>
-
 
 </div>
 
 
-<section
+<div
 class="products"
 id="products"
 >
+</div>
+
+
 </section>
 
 
-<section class="features">
+<!-- ======================================================
+     BRANDS
+     ====================================================== -->
+
+<section class="section">
 
 
-<div class="feature">
+<div class="section-head">
 
-<div class="feature-icon">
-🚚
+<div class="section-title">
+
+<div class="section-title-line"></div>
+
+<h2>
+برندهای منتخب
+</h2>
+
 </div>
-
-<strong>
-ارسال سریع
-</strong>
-
-<small>
-تحویل سریع سفارش‌ها
-</small>
-
-</div>
-
-
-<div class="feature">
-
-<div class="feature-icon">
-🔒
-</div>
-
-<strong>
-پرداخت امن
-</strong>
-
-<small>
-قابل اتصال به درگاه
-</small>
 
 </div>
 
 
-<div class="feature">
+<div class="brands">
 
-<div class="feature-icon">
-💬
+
+<div class="brand">
+HOPESTAR
 </div>
 
-<strong>
-پشتیبانی
-</strong>
+<div class="brand">
+Hoco
+</div>
 
-<small>
-پاسخ‌گویی آنلاین
-</small>
+<div class="brand">
+Baseus
+</div>
+
+<div class="brand">
+Xiaomi
+</div>
+
+<div class="brand">
+Anker
+</div>
+
+<div class="brand">
+Remax
+</div>
+
 
 </div>
 
 
-<div class="feature">
+</section>
 
-<div class="feature-icon">
-↩️
+
+<!-- ======================================================
+     NEWSLETTER
+     ====================================================== -->
+
+<section class="newsletter">
+
+
+<div>
+
+<h2>
+از تخفیف‌ها باخبر شو 🎁
+</h2>
+
+<p>
+ایمیل خود را وارد کنید تا پیشنهادهای ویژه را از دست ندهید.
+</p>
+
 </div>
 
-<strong>
-بازگشت کالا
-</strong>
 
-<small>
-طبق قوانین فروشگاه
-</small>
+<div class="newsletter-form">
+
+<input
+type="email"
+placeholder="ایمیل شما..."
+>
+
+<button
+onclick="subscribe()"
+>
+عضویت
+</button>
 
 </div>
 
@@ -1065,66 +2779,101 @@ id="products"
 </main>
 
 
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+
 <footer>
 
 
-<div class="footer">
+<div class="footer-main">
 
 
 <div>
 
-<h3>
+<div class="footer-logo">
 RazaviShop
-</h3>
+</div>
 
-<p>
-فروشگاه آنلاین محصولات دیجیتال،
-ابزار و لوازم کاربردی.
+
+<p class="footer-about">
+
+رضاوی‌شاپ؛ فروشگاه آنلاین محصولات دیجیتال،
+ابزار و لوازم کاربردی با هدف ارائه تجربه‌ای
+ساده، سریع و مطمئن برای خرید اینترنتی.
+
 </p>
 
 </div>
 
 
-<div>
+<div class="footer-column">
+
+<h3>
+خدمات مشتریان
+</h3>
+
+<a href="#">
+پاسخ به پرسش‌های متداول
+</a>
+
+<a href="#">
+شرایط بازگشت کالا
+</a>
+
+<a href="#">
+روش‌های ارسال
+</a>
+
+<a href="#">
+قوانین و مقررات
+</a>
+
+</div>
+
+
+<div class="footer-column">
 
 <h3>
 دسترسی سریع
 </h3>
 
-<p>
-
 <a href="#">
 درباره ما
 </a>
-
-<br>
 
 <a href="#">
 تماس با ما
 </a>
 
-<br>
-
 <a href="#">
-قوانین فروشگاه
+فروشندگان
 </a>
 
-</p>
+<a href="#">
+فرصت‌های شغلی
+</a>
 
 </div>
 
 
-<div>
+<div class="footer-column">
 
 <h3>
-پشتیبانی
+ارتباط با ما
 </h3>
 
-<p>
-شنبه تا پنجشنبه
-<br>
-پشتیبانی آنلاین
-</p>
+<a href="#">
+📞 پشتیبانی
+</a>
+
+<a href="#">
+📱 شبکه‌های اجتماعی
+</a>
+
+<a href="#">
+📍 آدرس فروشگاه
+</a>
 
 </div>
 
@@ -1132,7 +2881,7 @@ RazaviShop
 </div>
 
 
-<div class="copyright">
+<div class="footer-bottom">
 
 © 2026 RazaviShop — تمامی حقوق محفوظ است.
 
@@ -1142,81 +2891,147 @@ RazaviShop
 </footer>
 
 
-<!-- CART -->
-
+<!-- ======================================================
+     CART
+     ====================================================== -->
 
 <div
-class="modal"
-id="cartModal"
->
-
-
-<div class="modal-box">
-
-
-<div class="modal-header">
-
-<h2>
-🛒 سبد خرید
-</h2>
-
-
-<button
-class="close"
+class="overlay"
+id="overlay"
 onclick="closeCart()"
 >
-بستن
+</div>
+
+
+<aside
+class="cart-drawer"
+id="cartDrawer"
+>
+
+
+<div class="cart-header">
+
+<h3>
+🛒 سبد خرید
+</h3>
+
+
+<button
+class="close-button"
+onclick="closeCart()"
+>
+✕
 </button>
 
 </div>
 
 
 <div
-id="cartItems"
+class="cart-body"
+id="cartBody"
 >
 </div>
 
 
-<div class="cart-total">
+<div class="cart-footer">
+
+
+<div class="summary-row">
 
 <span>
-مجموع
+جمع کالاها
 </span>
 
-<span
-id="cartTotal"
->
-0 تومان
+<strong id="subtotal">
+۰ تومان
+</strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>
+تخفیف
 </span>
+
+<strong
+style="color:#16a34a"
+id="discountTotal"
+>
+۰ تومان
+</strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>
+ارسال
+</span>
+
+<span>
+محاسبه در مرحله بعد
+</span>
+
+</div>
+
+
+<div class="summary-row total">
+
+<span>
+مبلغ نهایی
+</span>
+
+<strong id="finalTotal">
+۰ تومان
+</strong>
 
 </div>
 
 
 <button
-class="checkout"
+class="checkout-button"
 onclick="checkout()"
 >
-ادامه و پرداخت
+ادامه فرایند خرید
 </button>
 
 
 </div>
 
 
-</div>
+</aside>
 
 
-<!-- PRODUCT DETAIL -->
-
+<!-- ======================================================
+     PRODUCT MODAL
+     ====================================================== -->
 
 <div
 class="modal"
 id="productModal"
+onclick="closeProductOutside(event)"
 >
 
 
 <div
-class="modal-box"
+class="product-modal"
+onclick="event.stopPropagation()"
+>
+
+
+<button
+class="modal-close"
+onclick="closeProduct()"
+>
+✕
+</button>
+
+
+<div
+class="product-detail"
 id="productDetail"
 >
 </div>
@@ -1225,165 +3040,479 @@ id="productDetail"
 </div>
 
 
+</div>
+
+
+<!-- ======================================================
+     TOAST
+     ====================================================== -->
+
+<div
+class="toast"
+id="toast"
+>
+</div>
+
+
 <script>
 
+
+/* =========================================================
+   PRODUCTS
+   ========================================================= */
 
 const products = [
 
 {
 id:1,
+
 name:"اسپیکر بلوتوثی Hopestar A65",
-price:2490000,
-oldPrice:2990000,
-discount:12,
+
+brand:"HOPESTAR",
+
 category:"دیجیتال",
-emoji:"🔊",
-description:"اسپیکر بلوتوثی قدرتمند مناسب استفاده روزمره، مهمانی و فضای باز."
+
+price:2490000,
+
+oldPrice:2990000,
+
+discount:12,
+
+rating:4.8,
+
+reviews:126,
+
+sold:320,
+
+badge:"پرفروش",
+
+image:"images/products/hopestar-a65.png",
+
+placeholder:"🔊",
+
+description:
+"اسپیکر بلوتوثی Hopestar A65 با طراحی جذاب، صدای قدرتمند و مناسب برای استفاده روزمره، مهمانی و فضای باز."
+
 },
 
 {
 id:2,
+
 name:"هدفون بی‌سیم Pro Max",
-price:1890000,
-oldPrice:2300000,
-discount:18,
+
+brand:"Pro Max",
+
 category:"دیجیتال",
-emoji:"🎧",
-description:"هدفون بی‌سیم با طراحی مدرن و مناسب استفاده روزمره."
+
+price:1890000,
+
+oldPrice:2300000,
+
+discount:18,
+
+rating:4.7,
+
+reviews:89,
+
+sold:210,
+
+badge:"تخفیف",
+
+image:"images/products/headphone.png",
+
+placeholder:"🎧",
+
+description:
+"هدفون بی‌سیم با طراحی مدرن، مناسب موسیقی، تماس و استفاده روزمره."
+
 },
 
 {
 id:3,
+
 name:"ست ابزار حرفه‌ای ۴۶ پارچه",
-price:1350000,
-oldPrice:1600000,
-discount:15,
+
+brand:"Professional",
+
 category:"ابزار",
-emoji:"🧰",
-description:"ست ابزار کاربردی برای تعمیرات و کارهای فنی."
+
+price:1350000,
+
+oldPrice:1600000,
+
+discount:15,
+
+rating:4.9,
+
+reviews:74,
+
+sold:180,
+
+badge:"پرفروش",
+
+image:"images/products/tool-set.png",
+
+placeholder:"🧰",
+
+description:
+"مجموعه کامل ابزار کاربردی برای تعمیرات، کارهای فنی و استفاده خانگی."
+
 },
 
 {
 id:4,
+
 name:"کیبورد گیمینگ RGB",
-price:990000,
-oldPrice:1250000,
-discount:10,
+
+brand:"Gaming",
+
 category:"گیمینگ",
-emoji:"⌨️",
-description:"کیبورد گیمینگ RGB مناسب بازی و استفاده روزمره."
+
+price:990000,
+
+oldPrice:1250000,
+
+discount:10,
+
+rating:4.6,
+
+reviews:54,
+
+sold:140,
+
+badge:"جدید",
+
+image:"images/products/keyboard.png",
+
+placeholder:"⌨️",
+
+description:
+"کیبورد گیمینگ RGB با طراحی مدرن برای بازی و استفاده روزمره."
+
 },
 
 {
 id:5,
+
 name:"ماوس گیمینگ حرفه‌ای",
-price:740000,
-oldPrice:920000,
-discount:9,
+
+brand:"Gaming",
+
 category:"گیمینگ",
-emoji:"🖱️",
-description:"ماوس گیمینگ دقیق و سریع."
+
+price:740000,
+
+oldPrice:920000,
+
+discount:9,
+
+rating:4.5,
+
+reviews:42,
+
+sold:115,
+
+badge:"تخفیف",
+
+image:"images/products/mouse.png",
+
+placeholder:"🖱️",
+
+description:
+"ماوس گیمینگ دقیق و سریع با طراحی ارگونومیک."
+
 },
 
 {
 id:6,
+
 name:"پاوربانک ۲۰۰۰۰ میلی‌آمپر",
-price:1290000,
-oldPrice:1550000,
-discount:14,
+
+brand:"PowerBank",
+
 category:"موبایل",
-emoji:"🔋",
-description:"پاوربانک ظرفیت بالا برای شارژ دستگاه‌های مختلف."
+
+price:1290000,
+
+oldPrice:1550000,
+
+discount:14,
+
+rating:4.7,
+
+reviews:91,
+
+sold:250,
+
+badge:"پرفروش",
+
+image:"images/products/powerbank.png",
+
+placeholder:"🔋",
+
+description:
+"پاوربانک ظرفیت بالا برای شارژ گوشی، تبلت و سایر دستگاه‌های دیجیتال."
+
 },
 
 {
 id:7,
+
 name:"چراغ LED رومیزی",
-price:590000,
-oldPrice:720000,
-discount:11,
+
+brand:"Home",
+
 category:"خانه",
-emoji:"💡",
-description:"چراغ LED مناسب میز کار و مطالعه."
+
+price:590000,
+
+oldPrice:720000,
+
+discount:11,
+
+rating:4.6,
+
+reviews:35,
+
+sold:90,
+
+badge:"جدید",
+
+image:"images/products/desk-lamp.png",
+
+placeholder:"💡",
+
+description:
+"چراغ LED رومیزی مناسب میز کار، مطالعه و فضای کاری."
+
 },
 
 {
 id:8,
+
 name:"دسته بازی بی‌سیم",
-price:1100000,
-oldPrice:1350000,
-discount:8,
+
+brand:"Gaming",
+
 category:"گیمینگ",
-emoji:"🎮",
-description:"دسته بازی بی‌سیم مناسب گیمینگ."
+
+price:1100000,
+
+oldPrice:1350000,
+
+discount:8,
+
+rating:4.5,
+
+reviews:63,
+
+sold:160,
+
+badge:"محبوب",
+
+image:"images/products/controller.png",
+
+placeholder:"🎮",
+
+description:
+"دسته بازی بی‌سیم مناسب انواع بازی‌های کامپیوتری."
+
+},
+
+{
+id:9,
+
+name:"اسپیکر قابل حمل Mini",
+
+brand:"Audio",
+
+category:"دیجیتال",
+
+price:680000,
+
+oldPrice:790000,
+
+discount:13,
+
+rating:4.4,
+
+reviews:38,
+
+sold:105,
+
+badge:"جدید",
+
+image:"images/products/mini-speaker.png",
+
+placeholder:"🔊",
+
+description:
+"اسپیکر کوچک و قابل حمل برای استفاده روزمره."
+
+},
+
+{
+id:10,
+
+name:"شارژر سریع USB-C",
+
+brand:"Hoco",
+
+category:"موبایل",
+
+price:420000,
+
+oldPrice:520000,
+
+discount:19,
+
+rating:4.8,
+
+reviews:81,
+
+sold:300,
+
+badge:"تخفیف",
+
+image:"images/products/charger.png",
+
+placeholder:"🔌",
+
+description:
+"شارژر سریع USB-C مناسب گوشی‌ها و تجهیزات سازگار."
+
 }
 
 ];
 
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let cart =
+JSON.parse(
+localStorage.getItem("razavi_cart") || "[]"
+);
+
+let favorites =
+JSON.parse(
+localStorage.getItem("razavi_favorites") || "[]"
+);
 
 let currentCategory="همه";
 
 let discountOnly=false;
 
 
-let cart=
-JSON.parse(
-localStorage.getItem("razavi_cart") || "[]"
-);
+/* =========================================================
+   HELPERS
+   ========================================================= */
 
+function money(value){
 
-let favorites=
-JSON.parse(
-localStorage.getItem("razavi_favorites") || "[]"
-);
-
-
-function money(number){
-
-return number.toLocaleString("fa-IR");
+return Number(value)
+.toLocaleString("fa-IR");
 
 }
 
 
+function saveState(){
+
+localStorage.setItem(
+"razavi_cart",
+JSON.stringify(cart)
+);
+
+localStorage.setItem(
+"razavi_favorites",
+JSON.stringify(favorites)
+);
+
+}
+
+
+function getProduct(id){
+
+return products.find(
+product => product.id === id
+);
+
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+function productImage(product){
+
+return `
+
+<img
+src="${product.image}"
+alt="${product.name}"
+onerror="
+this.style.display='none';
+this.nextElementSibling.style.display='block';
+"
+>
+
+<div
+class="product-placeholder"
+style="display:none"
+>
+${product.placeholder}
+</div>
+
+`;
+
+}
+
+
+/* =========================================================
+   RENDER PRODUCTS
+   ========================================================= */
+
 function renderProducts(){
 
-let search=
-document
-.getElementById("search")
+const container =
+document.getElementById("products");
+
+let search =
+document.getElementById("searchInput")
 .value
 .trim()
 .toLowerCase();
 
 
-let list=
-products.filter(product=>{
+let list =
+products.filter(product => {
 
-const categoryOK=
-currentCategory==="همه" ||
-product.category===currentCategory;
+const categoryMatch =
+currentCategory === "همه" ||
+product.category === currentCategory;
 
-
-const searchOK=
+const searchMatch =
 !search ||
-product.name
-.toLowerCase()
-.includes(search);
+product.name.toLowerCase().includes(search) ||
+product.brand.toLowerCase().includes(search) ||
+product.category.toLowerCase().includes(search);
 
-
-const discountOK=
+const discountMatch =
 !discountOnly ||
-product.discount>0;
+product.discount > 0;
 
-
-return categoryOK &&
-searchOK &&
-discountOK;
+return categoryMatch &&
+searchMatch &&
+discountMatch;
 
 });
 
 
-const sort=
-document.getElementById("sort").value;
+const sort =
+document.getElementById("sortSelect")
+.value;
 
 
 if(sort==="cheap"){
@@ -1394,7 +3523,6 @@ list.sort(
 
 }
 
-
 if(sort==="expensive"){
 
 list.sort(
@@ -1402,7 +3530,6 @@ list.sort(
 );
 
 }
-
 
 if(sort==="discount"){
 
@@ -1413,24 +3540,33 @@ list.sort(
 }
 
 
-const container=
-document.getElementById("products");
-
-
 if(!list.length){
 
 container.innerHTML=`
 
 <div style="
 grid-column:1/-1;
-text-align:center;
-padding:60px;
-background:white;
+background:#fff;
 border-radius:18px;
+padding:70px 20px;
+text-align:center;
 ">
 
-محصولی پیدا نشد 😕
+<div style="font-size:60px">
+🔎
+</div>
 
+<h3 style="margin-top:15px">
+محصولی پیدا نشد
+</h3>
+
+<p style="
+color:#888;
+margin-top:8px;
+font-size:13px;
+">
+عبارت جستجو یا دسته‌بندی را تغییر دهید.
+</p>
 
 </div>
 
@@ -1441,50 +3577,76 @@ return;
 }
 
 
-container.innerHTML=
+container.innerHTML =
+list.map(product => productCard(product))
+.join("");
 
-list.map(product=>{
+}
 
-const liked=
+
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
+
+function productCard(product){
+
+const liked =
 favorites.includes(product.id);
 
 
 return `
 
-<article class="product">
+<article class="product-card">
 
 
-<div class="product-image">
+<div
+class="product-image"
+onclick="openProduct(${product.id})"
+>
 
 
-<span class="discount">
+<div class="
+product-badge
+${product.badge === "جدید" ? "green" : ""}
+">
 
-${product.discount}٪
+${product.badge}
 
-</span>
+</div>
 
 
 <button
-class="favorite"
-onclick="toggleFavorite(${product.id})"
+class="
+product-favorite
+${liked ? "active" : ""}
+"
+onclick="
+event.stopPropagation();
+toggleFavorite(${product.id});
+"
 >
 
-${liked ? "❤️" : "♡"}
+${liked ? "♥" : "♡"}
 
 </button>
 
 
-${product.emoji}
+${productImage(product)}
 
 
 </div>
 
 
-<div class="product-body">
+<div class="product-info">
+
+
+<div class="product-brand">
+${product.brand}
+</div>
 
 
 <div
-class="product-title"
+class="product-name"
 onclick="openProduct(${product.id})"
 >
 
@@ -1493,32 +3655,66 @@ ${product.name}
 </div>
 
 
-<div>
+<div class="rating">
 
-<span class="price">
-
-${money(product.price)}
-
-تومان
-
+<span class="stars">
+★★★★★
 </span>
 
+<span>
+${product.rating}
+</span>
 
-<span class="old-price">
-
-${money(product.oldPrice)}
-
+<span class="rating-count">
+(${money(product.reviews)})
 </span>
 
 </div>
 
 
+<div class="product-prices">
+
+
+<div>
+
+<div class="price">
+
+${money(product.price)}
+
+<span class="price-unit">
+تومان
+</span>
+
+</div>
+
+
+<div class="old-price">
+
+${money(product.oldPrice)}
+
+تومان
+
+</div>
+
+</div>
+
+
+<div class="discount-percent">
+
+${product.discount}٪
+
+</div>
+
+
+</div>
+
+
 <button
-class="add-cart"
+class="add-button"
 onclick="addToCart(${product.id})"
 >
 
-افزودن به سبد 🛒
+افزودن به سبد خرید
 
 </button>
 
@@ -1530,10 +3726,12 @@ onclick="addToCart(${product.id})"
 
 `;
 
-}).join("");
-
 }
 
+
+/* =========================================================
+   CATEGORY
+   ========================================================= */
 
 function setCategory(category){
 
@@ -1541,9 +3739,15 @@ currentCategory=category;
 
 discountOnly=false;
 
+document.getElementById("productsTitle")
+.textContent =
+category==="همه"
+? "محصولات منتخب"
+: `محصولات ${category}`;
+
 renderProducts();
 
-scrollProducts();
+scrollToSection("productsSection");
 
 }
 
@@ -1554,29 +3758,27 @@ currentCategory="همه";
 
 discountOnly=true;
 
+document.getElementById("productsTitle")
+.textContent="تخفیف‌های ویژه";
+
 renderProducts();
 
-scrollProducts();
+scrollToSection("productsSection");
 
 }
 
 
-function scrollProducts(){
+/* =========================================================
+   SEARCH
+   ========================================================= */
 
-document
-.getElementById("products")
-.scrollIntoView({
-behavior:"smooth"
-});
-
-}
+const searchInput =
+document.getElementById("searchInput");
 
 
-document
-.getElementById("search")
-.addEventListener(
+searchInput.addEventListener(
 "input",
-()=>{
+function(){
 
 currentCategory="همه";
 
@@ -1584,47 +3786,168 @@ discountOnly=false;
 
 renderProducts();
 
+showSearchResults(
+this.value
+);
+
 });
 
+
+function showSearchResults(value){
+
+const box =
+document.getElementById("searchResults");
+
+
+const query =
+value.trim().toLowerCase();
+
+
+if(!query){
+
+box.classList.remove("show");
+
+return;
+
+}
+
+
+const matches =
+products
+.filter(product =>
+product.name
+.toLowerCase()
+.includes(query)
+)
+.slice(0,5);
+
+
+if(!matches.length){
+
+box.innerHTML=`
+
+<div style="
+padding:20px;
+text-align:center;
+color:#888;
+font-size:13px;
+">
+محصولی پیدا نشد
+</div>
+
+`;
+
+box.classList.add("show");
+
+return;
+
+}
+
+
+box.innerHTML =
+matches.map(product => `
+
+<div
+class="search-result"
+onclick="openProduct(${product.id});closeSearchResults()"
+>
+
+<div class="search-result-image">
+
+${productImage(product)}
+
+</div>
+
+
+<div class="search-result-info">
+
+<strong>
+${product.name}
+</strong>
+
+<small>
+${money(product.price)} تومان
+</small>
+
+</div>
+
+</div>
+
+`).join("");
+
+
+box.classList.add("show");
+
+}
+
+
+function closeSearchResults(){
+
+document
+.getElementById("searchResults")
+.classList.remove("show");
+
+}
+
+
+document.addEventListener(
+"click",
+function(event){
+
+if(!event.target.closest(".search-box")){
+
+closeSearchResults();
+
+}
+
+});
+
+
+/* =========================================================
+   FAVORITES
+   ========================================================= */
 
 function toggleFavorite(id){
 
 if(favorites.includes(id)){
 
-favorites=
+favorites =
 favorites.filter(
-x=>x!==id
+item => item !== id
 );
+
+showToast("از علاقه‌مندی‌ها حذف شد");
 
 }else{
 
 favorites.push(id);
 
+showToast("به علاقه‌مندی‌ها اضافه شد ❤️");
+
 }
 
-
-localStorage.setItem(
-"razavi_favorites",
-JSON.stringify(favorites)
-);
-
+saveState();
 
 renderProducts();
 
 }
 
 
+/* =========================================================
+   CART
+   ========================================================= */
+
 function addToCart(id){
 
-const item=
+const existing =
 cart.find(
-x=>x.id===id
+item => item.id === id
 );
 
 
-if(item){
+if(existing){
 
-item.quantity++;
+existing.quantity++;
 
 }else{
 
@@ -1636,50 +3959,45 @@ quantity:1
 }
 
 
-saveCart();
+saveState();
 
 updateCartCount();
+
+showToast("محصول به سبد خرید اضافه شد 🛒");
 
 openCart();
 
 }
 
 
-function saveCart(){
-
-localStorage.setItem(
-"razavi_cart",
-JSON.stringify(cart)
-);
-
-}
-
-
 function updateCartCount(){
 
-const count=
+const count =
 cart.reduce(
-(total,item)=>
-total+item.quantity,
+(sum,item) =>
+sum + item.quantity,
 0
 );
 
 
-document
-.getElementById("cartCount")
-.textContent=count;
+document.getElementById("cartCount")
+.textContent =
+count.toLocaleString("fa-IR");
 
 }
 
 
 function openCart(){
 
+renderCart();
+
 document
-.getElementById("cartModal")
+.getElementById("cartDrawer")
 .classList.add("active");
 
-
-renderCart();
+document
+.getElementById("overlay")
+.classList.add("active");
 
 }
 
@@ -1687,7 +4005,11 @@ renderCart();
 function closeCart(){
 
 document
-.getElementById("cartModal")
+.getElementById("cartDrawer")
+.classList.remove("active");
+
+document
+.getElementById("overlay")
 .classList.remove("active");
 
 }
@@ -1695,56 +4017,71 @@ document
 
 function renderCart(){
 
-const container=
-document.getElementById("cartItems");
+const body =
+document.getElementById("cartBody");
 
 
 if(!cart.length){
 
-container.innerHTML=`
+body.innerHTML=`
 
-<div style="
-text-align:center;
-padding:40px;
-color:#777;
-">
+<div class="empty-cart">
 
-سبد خرید خالی است 🛒
+<div class="empty-cart-icon">
+🛒
+</div>
+
+<strong>
+سبد خرید شما خالی است
+</strong>
+
+<span>
+هنوز محصولی به سبد خرید اضافه نکرده‌اید.
+</span>
 
 </div>
 
 `;
 
+document.getElementById("subtotal")
+.textContent="۰ تومان";
 
-document
-.getElementById("cartTotal")
-.textContent="0 تومان";
+document.getElementById("discountTotal")
+.textContent="۰ تومان";
 
+document.getElementById("finalTotal")
+.textContent="۰ تومان";
 
 return;
 
 }
 
 
-let total=0;
+let subtotal=0;
+
+let discount=0;
 
 
-container.innerHTML=
+body.innerHTML =
+cart.map(item => {
 
-cart.map(item=>{
-
-const product=
-products.find(
-x=>x.id===item.id
-);
+const product =
+getProduct(item.id);
 
 
-const itemTotal=
-product.price*
+const itemTotal =
+product.price *
 item.quantity;
 
 
-total+=itemTotal;
+const itemDiscount =
+(product.oldPrice-product.price) *
+item.quantity;
+
+
+subtotal += itemTotal;
+
+discount += itemDiscount;
 
 
 return `
@@ -1752,28 +4089,25 @@ return `
 <div class="cart-item">
 
 
-<div class="cart-image">
+<div class="cart-item-image">
 
-${product.emoji}
+${productImage(product)}
 
 </div>
 
 
-<div class="cart-info">
+<div class="cart-item-info">
+
 
 <strong>
-
 ${product.name}
-
 </strong>
 
 
-<small>
+<div class="cart-item-price">
 
 ${money(product.price)}
 تومان
-
-</small>
 
 </div>
 
@@ -1788,11 +4122,9 @@ onclick="changeQuantity(${product.id},-1)"
 </button>
 
 
-<b>
-
+<span>
 ${item.quantity}
-
-</b>
+</span>
 
 
 <button
@@ -1807,44 +4139,63 @@ onclick="changeQuantity(${product.id},1)"
 
 </div>
 
+
+<button
+class="remove-item"
+onclick="removeFromCart(${product.id})"
+>
+حذف
+</button>
+
+
+</div>
+
 `;
 
 }).join("");
 
 
-document
-.getElementById("cartTotal")
-.textContent=
-money(total)+" تومان";
+document.getElementById("subtotal")
+.textContent =
+money(subtotal)+" تومان";
+
+
+document.getElementById("discountTotal")
+.textContent =
+money(discount)+" تومان";
+
+
+document.getElementById("finalTotal")
+.textContent =
+money(subtotal)+" تومان";
 
 }
 
 
 function changeQuantity(id,change){
 
-const item=
+const item =
 cart.find(
-x=>x.id===id
+item => item.id === id
 );
 
 
 if(!item) return;
 
 
-item.quantity+=change;
+item.quantity += change;
 
 
-if(item.quantity<=0){
+if(item.quantity <= 0){
 
-cart=
-cart.filter(
-x=>x.id!==id
-);
+removeFromCart(id);
+
+return;
 
 }
 
 
-saveCart();
+saveState();
 
 updateCartCount();
 
@@ -1853,41 +4204,40 @@ renderCart();
 }
 
 
-function openProduct(id){
+function removeFromCart(id){
 
-const product=
-products.find(
-x=>x.id===id
+cart =
+cart.filter(
+item => item.id !== id
 );
 
+saveState();
 
-document
-.getElementById("productDetail")
+updateCartCount();
+
+renderCart();
+
+showToast("محصول حذف شد");
+
+}
+
+
+/* =========================================================
+   PRODUCT DETAIL
+   ========================================================= */
+
+function openProduct(id){
+
+const product =
+getProduct(id);
+
+
+document.getElementById("productDetail")
 .innerHTML=`
-
-<div class="modal-header">
-
-<h2>
-جزئیات محصول
-</h2>
-
-
-<button
-class="close"
-onclick="closeProduct()"
->
-بستن
-</button>
-
-</div>
-
-
-<div class="detail">
-
 
 <div class="detail-image">
 
-${product.emoji}
+${productImage(product)}
 
 </div>
 
@@ -1895,22 +4245,36 @@ ${product.emoji}
 <div class="detail-info">
 
 
+<div class="detail-brand">
+برند: ${product.brand}
+</div>
+
+
 <h2>
-
 ${product.name}
-
 </h2>
 
 
-<p style="
-color:#777;
-line-height:2;
-margin-top:15px;
-">
+<div class="detail-rating">
 
-${product.description}
+<span class="stars">
+★★★★★
+</span>
 
-</p>
+<span>
+${product.rating}
+</span>
+
+<span style="color:#999">
+${money(product.reviews)} نظر
+</span>
+
+</div>
+
+
+<span class="stock">
+✓ موجود در انبار
+</span>
 
 
 <div class="detail-price">
@@ -1921,38 +4285,55 @@ ${money(product.price)}
 </div>
 
 
-<p style="
-text-decoration:line-through;
-color:#aaa;
-">
+<div class="detail-old-price">
 
 ${money(product.oldPrice)}
 تومان
 
-</p>
+</div>
 
 
-<p style="
-color:#e91e63;
-font-weight:bold;
-margin:15px 0;
-">
+<p class="detail-description">
 
-${product.discount}٪ تخفیف
+${product.description}
 
 </p>
+
+
+<div
+style="
+background:#fff6f7;
+padding:12px;
+border-radius:10px;
+font-size:12px;
+"
+>
+
+🔥
+${product.discount}٪ تخفیف روی این محصول
+
+</div>
+
+
+<div class="detail-actions">
 
 
 <button
-class="checkout"
+class="detail-cart"
 onclick="
 addToCart(${product.id});
 closeProduct();
 "
 >
+افزودن به سبد
+</button>
 
-افزودن به سبد خرید
 
+<button
+class="buy-now"
+onclick="buyNow(${product.id})"
+>
+خرید فوری
 </button>
 
 
@@ -1980,12 +4361,270 @@ document
 }
 
 
+function closeProductOutside(event){
+
+if(
+event.target ===
+document.getElementById("productModal")
+){
+
+closeProduct();
+
+}
+
+}
+
+
+function buyNow(id){
+
+addToCart(id);
+
+closeProduct();
+
+openCart();
+
+}
+
+
+/* =========================================================
+   OFFER PRODUCTS
+   ========================================================= */
+
+function renderOfferProducts(){
+
+const offer =
+products
+.filter(product => product.discount >= 12)
+.slice(0,3);
+
+
+document.getElementById("offerProducts")
+.innerHTML =
+offer.map(product => `
+
+<div
+style="
+background:#fff;
+border-radius:13px;
+padding:10px;
+color:#222;
+display:flex;
+align-items:center;
+gap:10px;
+"
+>
+
+<div
+style="
+width:65px;
+height:65px;
+background:#f5f5f5;
+border-radius:9px;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+flex-shrink:0;
+"
+>
+
+${productImage(product)}
+
+</div>
+
+
+<div>
+
+<div style="
+font-size:11px;
+line-height:1.6;
+"
+>
+
+${product.name}
+
+</div>
+
+
+<strong style="
+font-size:13px;
+display:block;
+margin-top:5px;
+"
+>
+
+${money(product.price)}
+
+تومان
+
+</strong>
+
+
+<small style="
+color:#ef394e;
+"
+>
+
+${product.discount}٪ تخفیف
+
+</small>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+/* =========================================================
+   TIMER
+   ========================================================= */
+
+let offerEnd =
+Date.now() +
+(
+8*60*60 +
+45*60 +
+20
+)*1000;
+
+
+function updateTimer(){
+
+const remaining =
+Math.max(
+0,
+offerEnd-Date.now()
+);
+
+
+const totalSeconds =
+Math.floor(
+remaining/1000
+);
+
+
+const hours =
+Math.floor(
+totalSeconds/3600
+);
+
+
+const minutes =
+Math.floor(
+(totalSeconds%3600)/60
+);
+
+
+const seconds =
+totalSeconds%60;
+
+
+document.getElementById("hours")
+.textContent =
+String(hours).padStart(2,"0");
+
+
+document.getElementById("minutes")
+.textContent =
+String(minutes).padStart(2,"0");
+
+
+document.getElementById("seconds")
+.textContent =
+String(seconds).padStart(2,"0");
+
+}
+
+
+setInterval(
+updateTimer,
+1000
+);
+
+updateTimer();
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+let toastTimer;
+
+
+function showToast(message){
+
+const toast =
+document.getElementById("toast");
+
+
+toast.textContent=message;
+
+toast.classList.add("show");
+
+
+clearTimeout(toastTimer);
+
+
+toastTimer =
+setTimeout(
+()=>{
+toast.classList.remove("show");
+},
+2500
+);
+
+}
+
+
+/* =========================================================
+   MISC
+   ========================================================= */
+
+function scrollToSection(id){
+
+const element =
+document.getElementById(id);
+
+
+if(element){
+
+element.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+
+}
+
+}
+
+
+function subscribe(){
+
+showToast(
+"عضویت شما با موفقیت ثبت شد ❤️"
+);
+
+}
+
+
+function showLogin(){
+
+showToast(
+"بخش ورود و ثبت‌نام در نسخه بعدی به سیستم کاربری متصل می‌شود."
+);
+
+}
+
+
 function checkout(){
 
 if(!cart.length){
 
-alert(
-"سبد خرید خالی است."
+showToast(
+"سبد خرید شما خالی است."
 );
 
 return;
@@ -1993,19 +4632,25 @@ return;
 }
 
 
-alert(
-"این نسخه نمایشی است. برای پرداخت واقعی باید بک‌اند و درگاه پرداخت متصل شود."
+showToast(
+"درگاه پرداخت هنوز متصل نشده است."
 );
 
 }
 
 
-updateCartCount();
+/* =========================================================
+   INIT
+   ========================================================= */
 
 renderProducts();
 
-</script>
+renderOfferProducts();
 
+updateCartCount();
+
+
+</script>
 
 </body>
 </html>
