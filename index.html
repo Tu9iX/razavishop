@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>RazaviShop | فروشگاه آنلاین</title>
 
 <style>
-
 *{
     box-sizing:border-box;
     margin:0;
@@ -17,12 +15,10 @@
 body{
     font-family:Tahoma,Arial,sans-serif;
     background:#f5f6f8;
-    color:#202124;
+    color:#222;
 }
 
-button,
-input,
-select{
+button,input,select{
     font-family:inherit;
 }
 
@@ -35,10 +31,10 @@ a{
     color:inherit;
 }
 
-/* TOP BAR */
+/* TOP */
 
 .topbar{
-    background:#17181d;
+    background:#15161b;
     color:#ddd;
     padding:8px 5%;
     display:flex;
@@ -53,7 +49,7 @@ header{
     position:sticky;
     top:0;
     z-index:100;
-    box-shadow:0 3px 15px rgba(0,0,0,.06);
+    box-shadow:0 2px 15px rgba(0,0,0,.07);
 }
 
 .header{
@@ -66,7 +62,7 @@ header{
 }
 
 .logo{
-    font-size:27px;
+    font-size:28px;
     font-weight:900;
     color:#e91e63;
     white-space:nowrap;
@@ -78,24 +74,19 @@ header{
 
 .search{
     flex:1;
-    position:relative;
 }
 
 .search input{
     width:100%;
     border:0;
-    outline:none;
+    outline:0;
     background:#f1f2f5;
-    padding:14px 18px;
     border-radius:14px;
+    padding:14px 18px;
     font-size:14px;
 }
 
-.search input:focus{
-    box-shadow:0 0 0 2px #e91e6330;
-}
-
-.header-buttons{
+.actions{
     display:flex;
     gap:8px;
 }
@@ -121,7 +112,7 @@ header{
     color:#e91e63;
     border-radius:20px;
     padding:2px 7px;
-    margin-right:4px;
+    margin-right:5px;
 }
 
 /* NAV */
@@ -168,14 +159,20 @@ main{
     color:white;
 
     background:
-    radial-gradient(circle at 80% 20%,#e91e6340,transparent 30%),
-    linear-gradient(120deg,#15161b,#363b48);
+    radial-gradient(
+        circle at 80% 20%,
+        #e91e6345,
+        transparent 30%
+    ),
+    linear-gradient(
+        120deg,
+        #15161b,
+        #363b48
+    );
 
     display:flex;
-    align-items:center;
     justify-content:space-between;
-
-    overflow:hidden;
+    align-items:center;
 }
 
 .hero h1{
@@ -184,12 +181,12 @@ main{
 }
 
 .hero p{
-    line-height:2;
     color:#ddd;
+    line-height:2;
     margin-bottom:25px;
 }
 
-.hero-btn{
+.hero button{
     border:0;
     background:#e91e63;
     color:white;
@@ -229,8 +226,8 @@ main{
     border-radius:17px;
     padding:20px 8px;
     text-align:center;
-    transition:.2s;
     cursor:pointer;
+    transition:.2s;
 }
 
 .category:hover{
@@ -251,11 +248,6 @@ main{
 
 /* FILTER */
 
-.filters{
-    display:flex;
-    gap:10px;
-}
-
 .filters select{
     border:1px solid #ddd;
     background:white;
@@ -273,9 +265,9 @@ main{
 
 .product{
     background:white;
+    border:1px solid #e7e8ec;
     border-radius:19px;
     overflow:hidden;
-    border:1px solid #e7e8ec;
     transition:.2s;
 }
 
@@ -286,22 +278,31 @@ main{
 
 .product-image{
     height:210px;
-    background:linear-gradient(135deg,#f0f1f4,#fff);
+    background:linear-gradient(
+        135deg,
+        #eef0f3,
+        #fff
+    );
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     font-size:80px;
     position:relative;
 }
 
 .discount{
     position:absolute;
-    top:11px;
     right:11px;
+    top:11px;
+
     background:#e91e63;
     color:white;
+
     padding:5px 9px;
     border-radius:8px;
+
     font-size:11px;
 }
 
@@ -309,11 +310,14 @@ main{
     position:absolute;
     left:11px;
     top:11px;
+
     width:35px;
     height:35px;
+
     border:0;
     border-radius:50%;
     background:white;
+
     font-size:18px;
 }
 
@@ -325,7 +329,7 @@ main{
     font-size:14px;
     line-height:1.8;
     height:50px;
-    margin-bottom:10px;
+    cursor:pointer;
 }
 
 .price{
@@ -395,13 +399,10 @@ footer{
     max-width:1250px;
     margin:auto;
     padding:40px 15px;
+
     display:grid;
     grid-template-columns:2fr 1fr 1fr;
-    gap:35px;
-}
-
-.footer h3{
-    margin-bottom:15px;
+    gap:30px;
 }
 
 .footer p,
@@ -419,16 +420,21 @@ footer{
     font-size:11px;
 }
 
-/* MODALS */
+/* MODAL */
 
 .modal{
     display:none;
+
     position:fixed;
     inset:0;
+
     background:rgba(0,0,0,.65);
+
     z-index:1000;
+
     justify-content:center;
     align-items:center;
+
     padding:15px;
 }
 
@@ -438,10 +444,15 @@ footer{
 
 .modal-box{
     background:white;
-    width:min(650px,100%);
+
+    width:min(700px,100%);
+
     max-height:90vh;
+
     overflow:auto;
+
     border-radius:20px;
+
     padding:22px;
 }
 
@@ -449,6 +460,7 @@ footer{
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     margin-bottom:15px;
 }
 
@@ -459,11 +471,15 @@ footer{
     padding:8px 12px;
 }
 
+/* CART */
+
 .cart-item{
     display:flex;
     align-items:center;
     gap:12px;
+
     padding:15px 0;
+
     border-bottom:1px solid #eee;
 }
 
@@ -494,30 +510,40 @@ footer{
 .quantity button{
     width:28px;
     height:28px;
+
     border:1px solid #ddd;
+
     background:white;
+
     border-radius:7px;
 }
 
 .cart-total{
     display:flex;
     justify-content:space-between;
+
     font-size:18px;
     font-weight:bold;
+
     padding-top:18px;
 }
 
 .checkout{
     width:100%;
+
     border:0;
+
     background:#e91e63;
     color:white;
+
     border-radius:11px;
+
     padding:14px;
+
     margin-top:15px;
 }
 
-/* PRODUCT DETAILS */
+/* PRODUCT DETAIL */
 
 .detail{
     display:grid;
@@ -526,39 +552,34 @@ footer{
 }
 
 .detail-image{
-    min-height:400px;
-    background:#f4f5f7;
-    border-radius:20px;
+    min-height:350px;
+
+    background:#f2f3f5;
+
+    border-radius:18px;
+
     display:grid;
     place-items:center;
-    font-size:150px;
+
+    font-size:140px;
 }
 
 .detail-info{
-    background:white;
-    border-radius:20px;
-    padding:30px;
+    padding:10px;
 }
 
 .detail-info h2{
-    font-size:25px;
     line-height:1.8;
 }
 
 .detail-price{
     font-size:25px;
-    font-weight:bold;
-    color:#e91e63;
-    margin:25px 0;
-}
 
-.detail button{
-    width:100%;
-    padding:14px;
-    border:0;
-    border-radius:12px;
-    background:#e91e63;
-    color:white;
+    font-weight:bold;
+
+    color:#e91e63;
+
+    margin:22px 0;
 }
 
 /* MOBILE */
@@ -619,10 +640,6 @@ footer{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .features{
-        grid-template-columns:1fr 1fr;
-    }
-
     .footer{
         grid-template-columns:1fr;
     }
@@ -631,98 +648,152 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .detail-image{
-        min-height:280px;
-    }
-
 }
 
 </style>
 </head>
 
+
 <body>
 
+
 <div class="topbar">
-    <span>🚚 ارسال سریع سفارش‌ها</span>
-    <span>💬 پشتیبانی آنلاین</span>
+
+<span>
+🚚 ارسال سریع سفارش‌ها
+</span>
+
+<span>
+💬 پشتیبانی آنلاین
+</span>
+
 </div>
+
 
 <header>
 
+
 <div class="header">
 
-<a class="logo" href="#">
-    Razavi<span>Shop</span>
+
+<a
+class="logo"
+href="#"
+>
+Razavi<span>Shop</span>
 </a>
 
+
 <div class="search">
-    <input
-        id="search"
-        type="text"
-        placeholder="جستجوی محصول، برند یا دسته‌بندی..."
-    >
+
+<input
+id="search"
+placeholder="جستجوی محصول، برند یا دسته‌بندی..."
+>
+
 </div>
 
-<div class="header-buttons">
 
-<button class="btn login">
-    ورود / ثبت‌نام
-</button>
+<div class="actions">
+
 
 <button
-    class="btn cart-btn"
-    onclick="openCart()"
+class="btn login"
 >
-    🛒 سبد خرید
-    <b class="cart-count" id="cartCount">0</b>
+ورود / ثبت‌نام
 </button>
 
-</div>
+
+<button
+class="btn cart-btn"
+onclick="openCart()"
+>
+
+🛒 سبد خرید
+
+<b
+class="cart-count"
+id="cartCount"
+>
+0
+</b>
+
+</button>
+
 
 </div>
+
+
+</div>
+
 
 <nav>
 
 <div class="nav">
 
-<button onclick="setCategory('همه')">
+
+<button
+onclick="setCategory('همه')"
+>
 همه کالاها
 </button>
 
-<button onclick="setCategory('دیجیتال')">
+
+<button
+onclick="setCategory('دیجیتال')"
+>
 کالای دیجیتال
 </button>
 
-<button onclick="setCategory('ابزار')">
+
+<button
+onclick="setCategory('ابزار')"
+>
 ابزار
 </button>
 
-<button onclick="setCategory('موبایل')">
+
+<button
+onclick="setCategory('موبایل')"
+>
 موبایل
 </button>
 
-<button onclick="setCategory('گیمینگ')">
+
+<button
+onclick="setCategory('گیمینگ')"
+>
 گیمینگ
 </button>
 
-<button onclick="setCategory('خانه')">
+
+<button
+onclick="setCategory('خانه')"
+>
 خانه
 </button>
 
-<button onclick="showDiscounts()">
+
+<button
+onclick="showDiscounts()"
+>
 🔥 تخفیف‌ها
 </button>
+
 
 </div>
 
 </nav>
+
 
 </header>
 
 
 <main>
 
+
 <section class="hero">
+
 
 <div>
 
@@ -730,23 +801,28 @@ footer{
 خرید هوشمند، ساده و سریع
 </h1>
 
+
 <p>
-محصولات دیجیتال، ابزار و لوازم کاربردی<br>
+محصولات دیجیتال، ابزار و لوازم کاربردی
+<br>
 با تجربه‌ای مدرن و حرفه‌ای.
 </p>
 
+
 <button
-    class="hero-btn"
-    onclick="scrollProducts()"
+onclick="scrollProducts()"
 >
 مشاهده محصولات
 </button>
 
+
 </div>
+
 
 <div class="hero-art">
 🛍️
 </div>
+
 
 </section>
 
@@ -766,48 +842,120 @@ footer{
 
 <section class="categories">
 
-<div class="category" onclick="setCategory('دیجیتال')">
-<span class="category-icon">🔊</span>
-<span class="category-name">هدفون و اسپیکر</span>
+
+<div
+class="category"
+onclick="setCategory('دیجیتال')"
+>
+
+<span class="category-icon">
+🔊
+</span>
+
+<span class="category-name">
+هدفون و اسپیکر
+</span>
+
 </div>
 
-<div class="category" onclick="setCategory('موبایل')">
-<span class="category-icon">📱</span>
-<span class="category-name">موبایل و لوازم جانبی</span>
+
+<div
+class="category"
+onclick="setCategory('موبایل')"
+>
+
+<span class="category-icon">
+📱
+</span>
+
+<span class="category-name">
+موبایل
+</span>
+
 </div>
 
-<div class="category" onclick="setCategory('ابزار')">
-<span class="category-icon">🧰</span>
-<span class="category-name">ابزار</span>
+
+<div
+class="category"
+onclick="setCategory('ابزار')"
+>
+
+<span class="category-icon">
+🧰
+</span>
+
+<span class="category-name">
+ابزار
+</span>
+
 </div>
 
-<div class="category" onclick="setCategory('کامپیوتر')">
-<span class="category-icon">💻</span>
-<span class="category-name">لوازم کامپیوتر</span>
+
+<div
+class="category"
+onclick="setCategory('کامپیوتر')"
+>
+
+<span class="category-icon">
+💻
+</span>
+
+<span class="category-name">
+کامپیوتر
+</span>
+
 </div>
 
-<div class="category" onclick="setCategory('گیمینگ')">
-<span class="category-icon">🎮</span>
-<span class="category-name">گیمینگ</span>
+
+<div
+class="category"
+onclick="setCategory('گیمینگ')"
+>
+
+<span class="category-icon">
+🎮
+</span>
+
+<span class="category-name">
+گیمینگ
+</span>
+
 </div>
 
-<div class="category" onclick="setCategory('خانه')">
-<span class="category-icon">💡</span>
-<span class="category-name">لوازم خانه</span>
+
+<div
+class="category"
+onclick="setCategory('خانه')"
+>
+
+<span class="category-icon">
+💡
+</span>
+
+<span class="category-name">
+خانه
+</span>
+
 </div>
+
 
 </section>
 
 
 <div class="section-head">
 
+
 <h2>
 محصولات
 </h2>
 
+
 <div class="filters">
 
-<select id="sort" onchange="renderProducts()">
+<select
+id="sort"
+onchange="renderProducts()"
+>
 
 <option value="default">
 مرتب‌سازی
@@ -829,17 +977,19 @@ footer{
 
 </div>
 
+
 </div>
 
 
 <section
-    class="products"
-    id="products"
+class="products"
+id="products"
 >
 </section>
 
 
 <section class="features">
+
 
 <div class="feature">
 
@@ -908,14 +1058,18 @@ footer{
 
 </div>
 
+
 </section>
+
 
 </main>
 
 
 <footer>
 
+
 <div class="footer">
+
 
 <div>
 
@@ -938,21 +1092,23 @@ RazaviShop
 </h3>
 
 <p>
+
 <a href="#">
 درباره ما
 </a>
-</p>
 
-<p>
+<br>
+
 <a href="#">
 تماس با ما
 </a>
-</p>
 
-<p>
+<br>
+
 <a href="#">
 قوانین فروشگاه
 </a>
+
 </p>
 
 </div>
@@ -966,31 +1122,37 @@ RazaviShop
 
 <p>
 شنبه تا پنجشنبه
-</p>
-
-<p>
+<br>
 پشتیبانی آنلاین
 </p>
 
 </div>
 
+
 </div>
 
+
 <div class="copyright">
+
 © 2026 RazaviShop — تمامی حقوق محفوظ است.
+
 </div>
+
 
 </footer>
 
 
 <!-- CART -->
 
+
 <div
-    class="modal"
-    id="cartModal"
+class="modal"
+id="cartModal"
 >
 
+
 <div class="modal-box">
+
 
 <div class="modal-header">
 
@@ -998,17 +1160,22 @@ RazaviShop
 🛒 سبد خرید
 </h2>
 
+
 <button
-    class="close"
-    onclick="closeCart()"
+class="close"
+onclick="closeCart()"
 >
 بستن
 </button>
 
 </div>
 
-<div id="cartItems">
+
+<div
+id="cartItems"
+>
 </div>
+
 
 <div class="cart-total">
 
@@ -1016,42 +1183,50 @@ RazaviShop
 مجموع
 </span>
 
-<span id="cartTotal">
+<span
+id="cartTotal"
+>
 0 تومان
 </span>
 
 </div>
 
+
 <button
-    class="checkout"
-    onclick="checkout()"
+class="checkout"
+onclick="checkout()"
 >
 ادامه و پرداخت
 </button>
 
+
 </div>
+
 
 </div>
 
 
 <!-- PRODUCT DETAIL -->
 
+
 <div
-    class="modal"
-    id="productModal"
+class="modal"
+id="productModal"
 >
 
-<div class="modal-box">
 
-<div id="productDetail">
+<div
+class="modal-box"
+id="productDetail"
+>
 </div>
 
-</div>
 
 </div>
 
 
 <script>
+
 
 const products = [
 
@@ -1107,7 +1282,7 @@ oldPrice:920000,
 discount:9,
 category:"گیمینگ",
 emoji:"🖱️",
-description:"ماوس گیمینگ دقیق و مناسب بازی."
+description:"ماوس گیمینگ دقیق و سریع."
 },
 
 {
@@ -1140,20 +1315,27 @@ oldPrice:1350000,
 discount:8,
 category:"گیمینگ",
 emoji:"🎮",
-description:"دسته بازی بی‌سیم مناسب کامپیوتر و گیمینگ."
+description:"دسته بازی بی‌سیم مناسب گیمینگ."
 }
 
 ];
 
 
-let currentCategory = "همه";
-let discountOnly = false;
+let currentCategory="همه";
 
-let cart =
-JSON.parse(localStorage.getItem("razavi_cart") || "[]");
+let discountOnly=false;
 
-let favorites =
-JSON.parse(localStorage.getItem("razavi_favorites") || "[]");
+
+let cart=
+JSON.parse(
+localStorage.getItem("razavi_cart") || "[]"
+);
+
+
+let favorites=
+JSON.parse(
+localStorage.getItem("razavi_favorites") || "[]"
+);
 
 
 function money(number){
@@ -1165,7 +1347,7 @@ return number.toLocaleString("fa-IR");
 
 function renderProducts(){
 
-let search =
+let search=
 document
 .getElementById("search")
 .value
@@ -1173,56 +1355,72 @@ document
 .toLowerCase();
 
 
-let list =
-products.filter(product => {
+let list=
+products.filter(product=>{
 
-let categoryOK =
-currentCategory === "همه" ||
-product.category === currentCategory;
+const categoryOK=
+currentCategory==="همه" ||
+product.category===currentCategory;
 
-let searchOK =
+
+const searchOK=
 !search ||
-product.name.toLowerCase().includes(search);
+product.name
+.toLowerCase()
+.includes(search);
 
-let discountOK =
+
+const discountOK=
 !discountOnly ||
-product.discount > 0;
+product.discount>0;
 
-return categoryOK && searchOK && discountOK;
+
+return categoryOK &&
+searchOK &&
+discountOK;
 
 });
 
 
-const sort =
+const sort=
 document.getElementById("sort").value;
 
 
-if(sort === "cheap"){
+if(sort==="cheap"){
 
-list.sort((a,b)=>a.price-b.price);
-
-}
-
-if(sort === "expensive"){
-
-list.sort((a,b)=>b.price-a.price);
-
-}
-
-if(sort === "discount"){
-
-list.sort((a,b)=>b.discount-a.discount);
+list.sort(
+(a,b)=>a.price-b.price
+);
 
 }
 
 
-const container =
+if(sort==="expensive"){
+
+list.sort(
+(a,b)=>b.price-a.price
+);
+
+}
+
+
+if(sort==="discount"){
+
+list.sort(
+(a,b)=>b.discount-a.discount
+);
+
+}
+
+
+const container=
 document.getElementById("products");
 
 
-if(list.length === 0){
+if(!list.length){
 
-container.innerHTML = `
+container.innerHTML=`
+
 <div style="
 grid-column:1/-1;
 text-align:center;
@@ -1230,8 +1428,12 @@ padding:60px;
 background:white;
 border-radius:18px;
 ">
+
 محصولی پیدا نشد 😕
+
+
 </div>
+
 `;
 
 return;
@@ -1239,40 +1441,51 @@ return;
 }
 
 
-container.innerHTML =
-list.map(product => {
+container.innerHTML=
 
-const liked =
+list.map(product=>{
+
+const liked=
 favorites.includes(product.id);
+
 
 return `
 
 <article class="product">
 
+
 <div class="product-image">
 
+
 <span class="discount">
+
 ${product.discount}٪
+
 </span>
+
 
 <button
 class="favorite"
 onclick="toggleFavorite(${product.id})"
 >
+
 ${liked ? "❤️" : "♡"}
+
 </button>
 
+
 ${product.emoji}
+
 
 </div>
 
 
 <div class="product-body">
 
+
 <div
 class="product-title"
 onclick="openProduct(${product.id})"
-style="cursor:pointer"
 >
 
 ${product.name}
@@ -1283,12 +1496,18 @@ ${product.name}
 <div>
 
 <span class="price">
+
 ${money(product.price)}
- تومان
+
+تومان
+
 </span>
 
+
 <span class="old-price">
+
 ${money(product.oldPrice)}
+
 </span>
 
 </div>
@@ -1298,10 +1517,14 @@ ${money(product.oldPrice)}
 class="add-cart"
 onclick="addToCart(${product.id})"
 >
+
 افزودن به سبد 🛒
+
 </button>
 
+
 </div>
+
 
 </article>
 
@@ -1314,9 +1537,9 @@ onclick="addToCart(${product.id})"
 
 function setCategory(category){
 
-currentCategory = category;
+currentCategory=category;
 
-discountOnly = false;
+discountOnly=false;
 
 renderProducts();
 
@@ -1327,9 +1550,9 @@ scrollProducts();
 
 function showDiscounts(){
 
-currentCategory = "همه";
+currentCategory="همه";
 
-discountOnly = true;
+discountOnly=true;
 
 renderProducts();
 
@@ -1353,11 +1576,11 @@ document
 .getElementById("search")
 .addEventListener(
 "input",
-function(){
+()=>{
 
-currentCategory = "همه";
+currentCategory="همه";
 
-discountOnly = false;
+discountOnly=false;
 
 renderProducts();
 
@@ -1368,8 +1591,10 @@ function toggleFavorite(id){
 
 if(favorites.includes(id)){
 
-favorites =
-favorites.filter(x=>x !== id);
+favorites=
+favorites.filter(
+x=>x!==id
+);
 
 }else{
 
@@ -1377,10 +1602,12 @@ favorites.push(id);
 
 }
 
+
 localStorage.setItem(
 "razavi_favorites",
 JSON.stringify(favorites)
 );
+
 
 renderProducts();
 
@@ -1389,8 +1616,10 @@ renderProducts();
 
 function addToCart(id){
 
-const item =
-cart.find(x=>x.id === id);
+const item=
+cart.find(
+x=>x.id===id
+);
 
 
 if(item){
@@ -1428,15 +1657,17 @@ JSON.stringify(cart)
 
 function updateCartCount(){
 
-const count =
+const count=
 cart.reduce(
-(total,item)=>total + item.quantity,
+(total,item)=>
+total+item.quantity,
 0
 );
 
+
 document
 .getElementById("cartCount")
-.textContent = count;
+.textContent=count;
 
 }
 
@@ -1446,6 +1677,7 @@ function openCart(){
 document
 .getElementById("cartModal")
 .classList.add("active");
+
 
 renderCart();
 
@@ -1463,65 +1695,84 @@ document
 
 function renderCart(){
 
-const container =
+const container=
 document.getElementById("cartItems");
 
 
-if(cart.length === 0){
+if(!cart.length){
 
-container.innerHTML = `
+container.innerHTML=`
+
 <div style="
 text-align:center;
 padding:40px;
 color:#777;
 ">
-سبد خریدت خالیه 🛒
+
+سبد خرید خالی است 🛒
+
 </div>
+
 `;
+
 
 document
 .getElementById("cartTotal")
-textContent = "0 تومان";
+.textContent="0 تومان";
+
 
 return;
 
 }
 
 
-let total = 0;
+let total=0;
 
 
-container.innerHTML =
-cart.map(item => {
+container.innerHTML=
 
-const product =
+cart.map(item=>{
+
+const product=
 products.find(
-x=>x.id === item.id
+x=>x.id===item.id
 );
 
-const itemTotal =
-product.price * item.quantity;
 
-total += itemTotal;
+const itemTotal=
+product.price*
+item.quantity;
+
+
+total+=itemTotal;
 
 
 return `
 
 <div class="cart-item">
 
+
 <div class="cart-image">
+
 ${product.emoji}
+
 </div>
 
 
 <div class="cart-info">
 
 <strong>
+
 ${product.name}
+
 </strong>
 
+
 <small>
-${money(product.price)} تومان
+
+${money(product.price)}
+تومان
+
 </small>
 
 </div>
@@ -1529,15 +1780,20 @@ ${money(product.price)} تومان
 
 <div class="quantity">
 
+
 <button
 onclick="changeQuantity(${product.id},-1)"
 >
 −
 </button>
 
+
 <b>
+
 ${item.quantity}
+
 </b>
+
 
 <button
 onclick="changeQuantity(${product.id},1)"
@@ -1545,7 +1801,9 @@ onclick="changeQuantity(${product.id},1)"
 +
 </button>
 
+
 </div>
+
 
 </div>
 
@@ -1556,27 +1814,32 @@ onclick="changeQuantity(${product.id},1)"
 
 document
 .getElementById("cartTotal")
-.textContent =
-money(total) + " تومان";
+.textContent=
+money(total)+" تومان";
 
 }
 
 
 function changeQuantity(id,change){
 
-const item =
-cart.find(x=>x.id === id);
+const item=
+cart.find(
+x=>x.id===id
+);
+
 
 if(!item) return;
 
 
-item.quantity += change;
+item.quantity+=change;
 
 
-if(item.quantity <= 0){
+if(item.quantity<=0){
 
-cart =
-cart.filter(x=>x.id !== id);
+cart=
+cart.filter(
+x=>x.id!==id
+);
 
 }
 
@@ -1592,21 +1855,22 @@ renderCart();
 
 function openProduct(id){
 
-const product =
-products.find(x=>x.id === id);
-
-if(!product) return;
+const product=
+products.find(
+x=>x.id===id
+);
 
 
 document
 .getElementById("productDetail")
-.innerHTML = `
+.innerHTML=`
 
 <div class="modal-header">
 
 <h2>
 جزئیات محصول
 </h2>
+
 
 <button
 class="close"
@@ -1620,30 +1884,39 @@ onclick="closeProduct()"
 
 <div class="detail">
 
+
 <div class="detail-image">
+
 ${product.emoji}
+
 </div>
 
 
 <div class="detail-info">
 
+
 <h2>
+
 ${product.name}
+
 </h2>
+
 
 <p style="
 color:#777;
 line-height:2;
 margin-top:15px;
 ">
+
 ${product.description}
+
 </p>
 
 
 <div class="detail-price">
 
 ${money(product.price)}
- تومان
+تومان
 
 </div>
 
@@ -1652,28 +1925,39 @@ ${money(product.price)}
 text-decoration:line-through;
 color:#aaa;
 ">
-قیمت قبل:
+
 ${money(product.oldPrice)}
- تومان
+تومان
+
 </p>
 
 
 <p style="
 color:#e91e63;
-margin:15px 0;
 font-weight:bold;
+margin:15px 0;
 ">
+
 ${product.discount}٪ تخفیف
+
 </p>
 
 
 <button
-onclick="addToCart(${product.id});closeProduct()"
+class="checkout"
+onclick="
+addToCart(${product.id});
+closeProduct();
+"
 >
+
 افزودن به سبد خرید
+
 </button>
 
+
 </div>
+
 
 </div>
 
@@ -1698,9 +1982,11 @@ document
 
 function checkout(){
 
-if(cart.length === 0){
+if(!cart.length){
 
-alert("سبد خرید خالی است.");
+alert(
+"سبد خرید خالی است."
+);
 
 return;
 
@@ -1708,7 +1994,7 @@ return;
 
 
 alert(
-"این نسخه فعلاً نمایشی است. مرحله بعد می‌توانیم سیستم سفارش، پنل مدیریت و درگاه پرداخت را به آن وصل کنیم."
+"این نسخه نمایشی است. برای پرداخت واقعی باید بک‌اند و درگاه پرداخت متصل شود."
 );
 
 }
@@ -1719,6 +2005,7 @@ updateCartCount();
 renderProducts();
 
 </script>
+
 
 </body>
 </html>
