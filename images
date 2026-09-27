@@ -1,0 +1,19 @@
+razavishop
+│
+├── index.html
+│
+└── images
+    │
+    ├── logo.png
+    │
+    └── products
+        ├── hopestar-a65.png
+        ├── headphone.png
+        ├── tool-set.png
+        ├── keyboard.png
+        ├── mouse.png
+        ├── powerbank.png
+        ├── desk-lamp.png
+        ├── controller.png
+        ├── mini-speaker.png
+        └── charger.png
