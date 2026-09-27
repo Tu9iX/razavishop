@@ -1,12 +1,1724 @@
-<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AradShop</title><style>
-*{box-sizing:border-box}body{margin:0;background:#f5f6f8;color:#202124;font-family:Tahoma,Arial,sans-serif}.top{background:#16181d;color:#ddd;padding:8px 5%;font-size:12px;display:flex;justify-content:space-between}.header{background:#fff;padding:17px 5%;display:flex;align-items:center;gap:20px;position:sticky;top:0;z-index:5;box-shadow:0 2px 15px #0001}.logo{font-size:27px;font-weight:900;color:#ef4056;white-space:nowrap}.logo span{color:#202124}.search{height:48px;flex:1;background:#f1f2f4;border-radius:12px;display:flex;overflow:hidden}.search input{border:0;background:none;outline:0;padding:0 17px;width:100%;font-size:14px}.search button{width:60px;border:0;background:#ef4056;color:#fff;font-size:21px}.headbtn{border:1px solid #eee;background:#fff;border-radius:10px;padding:12px 15px}.nav{background:#fff;border-top:1px solid #eee;padding:0 5%;display:flex;gap:27px;overflow:auto;white-space:nowrap}.nav a{padding:13px 0;font-size:13px}.hero{margin:22px 5%;border-radius:24px;background:linear-gradient(120deg,#191b21,#343742);min-height:320px;color:#fff;padding:45px;display:flex;align-items:center;justify-content:space-between;overflow:hidden}.hero h1{font-size:40px;margin:0 0 12px}.hero p{color:#cfd1d6}.hero button{background:#ef4056;color:#fff;border:0;border-radius:10px;padding:13px 25px;font-weight:bold}.heroart{font-size:145px;transform:rotate(-8deg);filter:drop-shadow(0 20px 20px #0008)}section{margin:32px 5%}.titlebar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.titlebar h2{font-size:21px}.titlebar a{color:#ef4056;font-size:13px}.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}.cat{background:#fff;border-radius:16px;text-align:center;padding:20px 8px;box-shadow:0 3px 15px #00000009}.cat i{font-style:normal;font-size:35px}.cat b{display:block;margin-top:9px;font-size:12px}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:#fff;border-radius:16px;overflow:hidden;position:relative;box-shadow:0 3px 15px #0000000a}.pic{height:205px;background:#eef0f3;display:flex;align-items:center;justify-content:center;font-size:90px}.discount{position:absolute;right:10px;top:10px;background:#ef4056;color:#fff;border-radius:7px;padding:5px 8px;font-size:11px}.body{padding:14px}.name{font-size:13px;line-height:1.9;height:50px}.stars{color:#f2a900;font-size:12px}.price{font-weight:900;margin-top:8px}.old{font-size:11px;color:#999;text-decoration:line-through;margin-right:7px;font-weight:normal}.add{width:100%;margin-top:12px;padding:10px;border:0;border-radius:9px;background:#202228;color:#fff}.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.feature{background:#fff;border-radius:14px;padding:18px}.feature strong{display:block;margin-bottom:5px}.feature span{font-size:12px;color:#777}footer{margin-top:45px;background:#17191f;color:#aaa;padding:35px 5%;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}footer h3{color:#fff}footer p,footer a{font-size:12px;line-height:2}@media(max-width:800px){.header{flex-wrap:wrap}.search{order:3;flex-basis:100%}.hero{padding:28px;min-height:250px}.hero h1{font-size:28px}.heroart{font-size:75px}.cats{grid-template-columns:repeat(3,1fr)}.products{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}footer{grid-template-columns:1fr}}
-</style></head><body>
-<div class="top"><span>ارسال سریع برای سفارش‌های بالای ۲ میلیون تومان</span><span>پشتیبانی ۰۲۱-۱۲۳۴۵۶۷۸</span></div>
-<header class="header"><div class="logo">Arad<span>Shop</span></div><div class="search"><input id="q" placeholder="جستجوی محصول، برند یا دسته‌بندی..."><button onclick="search()">⌕</button></div><button class="headbtn">👤 ورود</button><button class="headbtn" onclick="cart()">🛒 سبد (<b id="count">۰</b>)</button></header>
-<nav class="nav"><a>دسته‌بندی کالاها</a><a>کالای دیجیتال</a><a>ابزار</a><a>موبایل و لوازم جانبی</a><a>گیمینگ</a><a>خانه و آشپزخانه</a><a>تخفیف‌ها 🔥</a></nav>
-<div class="hero"><div><h1>خرید هوشمند، ساده و سریع</h1><p>محصولات دیجیتال و ابزار منتخب با قیمت مناسب</p><button onclick="document.querySelector('#products').scrollIntoView({behavior:'smooth'})">مشاهده محصولات</button></div><div class="heroart">🎧</div></div>
-<section><div class="titlebar"><h2>دسته‌بندی‌های محبوب</h2><a>مشاهده همه ←</a></div><div class="cats"><div class="cat"><i>🎧</i><b>اسپیکر و هدفون</b></div><div class="cat"><i>📱</i><b>موبایل</b></div><div class="cat"><i>🛠️</i><b>ابزار</b></div><div class="cat"><i>⌨️</i><b>کامپیوتر</b></div><div class="cat"><i>🎮</i><b>گیمینگ</b></div><div class="cat"><i>💡</i><b>لوازم خانه</b></div></div></section>
-<section id="products"><div class="titlebar"><h2>پیشنهادهای ویژه</h2><a>مشاهده همه ←</a></div><div class="products" id="grid"></div></section>
-<section><div class="features"><div class="feature"><strong>🚚 ارسال سریع</strong><span>تحویل سریع سفارش‌ها</span></div><div class="feature"><strong>🔒 پرداخت امن</strong><span>پرداخت با امنیت بالا</span></div><div class="feature"><strong>↩️ ضمانت بازگشت</strong><span>امکان مرجوعی طبق قوانین</span></div><div class="feature"><strong>🎧 پشتیبانی</strong><span>پاسخگویی به مشتریان</span></div></div></section>
-<footer><div><h3>AradShop</h3><p>فروشگاه آنلاین مدرن برای فروش محصولات دیجیتال، ابزار و لوازم جانبی.</p></div><div><h3>خدمات مشتریان</h3><a>تماس با ما</a><br><a>پیگیری سفارش</a><br><a>شرایط بازگشت کالا</a></div><div><h3>دسترسی سریع</h3><a>درباره ما</a><br><a>قوانین</a><br><a>سوالات متداول</a></div></footer>
-<script>const data=[['اسپیکر بلوتوثی Hopestar A65','🎵','۲,۴۹۰,۰۰۰','۲,۹۹۰,۰۰۰','۱۲'],['هدفون بی‌سیم Pro Max','🎧','۱,۸۹۰,۰۰۰','۲,۳۰۰,۰۰۰','۱۸'],['ست ابزار حرفه‌ای ۴۶ پارچه','🧰','۱,۳۵۰,۰۰۰','۱,۶۰۰,۰۰۰','۱۵'],['کیبورد گیمینگ RGB','⌨️','۹۹۰,۰۰۰','۱,۲۵۰,۰۰۰','۱۰'],['ماوس گیمینگ حرفه‌ای','🖱️','۷۴۰,۰۰۰','۹۲۰,۰۰۰','۹'],['پاوربانک ۲۰۰۰۰','🔋','۱,۲۹۰,۰۰۰','۱,۵۵۰,۰۰۰','۱۴'],['چراغ LED رومیزی','💡','۵۹۰,۰۰۰','۷۲۰,۰۰۰','۱۱'],['دسته بازی بی‌سیم','🎮','۱,۱۰۰,۰۰۰','۱,۳۵۰,۰۰۰','۸']];let count=0;function render(x=data){grid.innerHTML=x.map(p=>`<article class="card"><span class="discount">${p[4]}٪ تخفیف</span><div class="pic">${p[1]}</div><div class="body"><div class="name">${p[0]}</div><div class="stars">★★★★★</div><div class="price">${p[2]} <span class="old">${p[3]}</span></div><button class="add" onclick="add()">افزودن به سبد</button></div></article>`).join('')}function add(){count++;document.getElementById('count').textContent=count.toLocaleString('fa-IR');alert('محصول به سبد خرید اضافه شد ✅')}function cart(){alert('تعداد کالا در سبد: '+count)}function search(){let q=document.getElementById('q').value.trim();render(q?data.filter(x=>x[0].toLowerCase().includes(q.toLowerCase())):data)}render();</script></body></html>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RazaviShop | فروشگاه آنلاین</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f5f6f8;
+    color:#202124;
+}
+
+button,
+input,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* TOP BAR */
+
+.topbar{
+    background:#17181d;
+    color:#ddd;
+    padding:8px 5%;
+    display:flex;
+    justify-content:space-between;
+    font-size:12px;
+}
+
+/* HEADER */
+
+header{
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 3px 15px rgba(0,0,0,.06);
+}
+
+.header{
+    max-width:1250px;
+    margin:auto;
+    padding:15px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:900;
+    color:#e91e63;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#17181d;
+}
+
+.search{
+    flex:1;
+    position:relative;
+}
+
+.search input{
+    width:100%;
+    border:0;
+    outline:none;
+    background:#f1f2f5;
+    padding:14px 18px;
+    border-radius:14px;
+    font-size:14px;
+}
+
+.search input:focus{
+    box-shadow:0 0 0 2px #e91e6330;
+}
+
+.header-buttons{
+    display:flex;
+    gap:8px;
+}
+
+.btn{
+    border:0;
+    border-radius:11px;
+    padding:11px 15px;
+}
+
+.login{
+    background:#fdeaf1;
+    color:#e91e63;
+}
+
+.cart-btn{
+    background:#e91e63;
+    color:white;
+}
+
+.cart-count{
+    background:white;
+    color:#e91e63;
+    border-radius:20px;
+    padding:2px 7px;
+    margin-right:4px;
+}
+
+/* NAV */
+
+nav{
+    border-top:1px solid #eee;
+}
+
+.nav{
+    max-width:1250px;
+    margin:auto;
+    padding:11px 15px;
+    display:flex;
+    gap:28px;
+    overflow:auto;
+    white-space:nowrap;
+}
+
+.nav button{
+    border:0;
+    background:none;
+    color:#555;
+    font-size:13px;
+}
+
+.nav button:hover{
+    color:#e91e63;
+}
+
+/* MAIN */
+
+main{
+    max-width:1250px;
+    margin:auto;
+    padding:25px 15px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:330px;
+    border-radius:25px;
+    padding:45px;
+    color:white;
+
+    background:
+    radial-gradient(circle at 80% 20%,#e91e6340,transparent 30%),
+    linear-gradient(120deg,#15161b,#363b48);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    overflow:hidden;
+}
+
+.hero h1{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    line-height:2;
+    color:#ddd;
+    margin-bottom:25px;
+}
+
+.hero-btn{
+    border:0;
+    background:#e91e63;
+    color:white;
+    padding:14px 25px;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+.hero-art{
+    font-size:130px;
+}
+
+/* SECTION */
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:35px 0 17px;
+}
+
+.section-head h2{
+    font-size:22px;
+}
+
+/* CATEGORIES */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:13px;
+}
+
+.category{
+    background:white;
+    border:1px solid #e7e8ec;
+    border-radius:17px;
+    padding:20px 8px;
+    text-align:center;
+    transition:.2s;
+    cursor:pointer;
+}
+
+.category:hover{
+    transform:translateY(-4px);
+    border-color:#e91e63;
+}
+
+.category-icon{
+    display:block;
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+.category-name{
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* FILTER */
+
+.filters{
+    display:flex;
+    gap:10px;
+}
+
+.filters select{
+    border:1px solid #ddd;
+    background:white;
+    border-radius:10px;
+    padding:9px 12px;
+}
+
+/* PRODUCTS */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:17px;
+}
+
+.product{
+    background:white;
+    border-radius:19px;
+    overflow:hidden;
+    border:1px solid #e7e8ec;
+    transition:.2s;
+}
+
+.product:hover{
+    transform:translateY(-5px);
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
+.product-image{
+    height:210px;
+    background:linear-gradient(135deg,#f0f1f4,#fff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:80px;
+    position:relative;
+}
+
+.discount{
+    position:absolute;
+    top:11px;
+    right:11px;
+    background:#e91e63;
+    color:white;
+    padding:5px 9px;
+    border-radius:8px;
+    font-size:11px;
+}
+
+.favorite{
+    position:absolute;
+    left:11px;
+    top:11px;
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:white;
+    font-size:18px;
+}
+
+.product-body{
+    padding:15px;
+}
+
+.product-title{
+    font-size:14px;
+    line-height:1.8;
+    height:50px;
+    margin-bottom:10px;
+}
+
+.price{
+    font-size:17px;
+    font-weight:bold;
+}
+
+.old-price{
+    color:#aaa;
+    text-decoration:line-through;
+    font-size:11px;
+    margin-right:8px;
+}
+
+.add-cart{
+    width:100%;
+    border:0;
+    background:#17181d;
+    color:white;
+    padding:11px;
+    border-radius:10px;
+    margin-top:13px;
+}
+
+.add-cart:hover{
+    background:#e91e63;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+    margin-top:35px;
+}
+
+.feature{
+    background:white;
+    padding:20px;
+    border-radius:16px;
+    text-align:center;
+}
+
+.feature-icon{
+    font-size:28px;
+}
+
+.feature strong{
+    display:block;
+    margin:8px 0;
+}
+
+.feature small{
+    color:#777;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:45px;
+    background:#17181d;
+    color:white;
+}
+
+.footer{
+    max-width:1250px;
+    margin:auto;
+    padding:40px 15px;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:35px;
+}
+
+.footer h3{
+    margin-bottom:15px;
+}
+
+.footer p,
+.footer a{
+    color:#aaa;
+    font-size:13px;
+    line-height:2.2;
+}
+
+.copyright{
+    text-align:center;
+    border-top:1px solid #333;
+    padding:15px;
+    color:#888;
+    font-size:11px;
+}
+
+/* MODALS */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    z-index:1000;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    background:white;
+    width:min(650px,100%);
+    max-height:90vh;
+    overflow:auto;
+    border-radius:20px;
+    padding:22px;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.close{
+    border:0;
+    background:#f1f2f4;
+    border-radius:9px;
+    padding:8px 12px;
+}
+
+.cart-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.cart-image{
+    font-size:38px;
+}
+
+.cart-info{
+    flex:1;
+}
+
+.cart-info strong{
+    font-size:13px;
+}
+
+.cart-info small{
+    display:block;
+    color:#777;
+    margin-top:5px;
+}
+
+.quantity{
+    display:flex;
+    align-items:center;
+    gap:7px;
+}
+
+.quantity button{
+    width:28px;
+    height:28px;
+    border:1px solid #ddd;
+    background:white;
+    border-radius:7px;
+}
+
+.cart-total{
+    display:flex;
+    justify-content:space-between;
+    font-size:18px;
+    font-weight:bold;
+    padding-top:18px;
+}
+
+.checkout{
+    width:100%;
+    border:0;
+    background:#e91e63;
+    color:white;
+    border-radius:11px;
+    padding:14px;
+    margin-top:15px;
+}
+
+/* PRODUCT DETAILS */
+
+.detail{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.detail-image{
+    min-height:400px;
+    background:#f4f5f7;
+    border-radius:20px;
+    display:grid;
+    place-items:center;
+    font-size:150px;
+}
+
+.detail-info{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+}
+
+.detail-info h2{
+    font-size:25px;
+    line-height:1.8;
+}
+
+.detail-price{
+    font-size:25px;
+    font-weight:bold;
+    color:#e91e63;
+    margin:25px 0;
+}
+
+.detail button{
+    width:100%;
+    padding:14px;
+    border:0;
+    border-radius:12px;
+    background:#e91e63;
+    color:white;
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .categories{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .features{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    .topbar{
+        display:none;
+    }
+
+    .header{
+        flex-wrap:wrap;
+    }
+
+    .search{
+        flex-basis:100%;
+        order:3;
+    }
+
+    .login{
+        display:none;
+    }
+
+    .hero{
+        padding:30px 22px;
+    }
+
+    .hero h1{
+        font-size:26px;
+    }
+
+    .hero-art{
+        display:none;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .categories{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer{
+        grid-template-columns:1fr;
+    }
+
+    .detail{
+        grid-template-columns:1fr;
+    }
+
+    .detail-image{
+        min-height:280px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <span>🚚 ارسال سریع سفارش‌ها</span>
+    <span>💬 پشتیبانی آنلاین</span>
+</div>
+
+<header>
+
+<div class="header">
+
+<a class="logo" href="#">
+    Razavi<span>Shop</span>
+</a>
+
+<div class="search">
+    <input
+        id="search"
+        type="text"
+        placeholder="جستجوی محصول، برند یا دسته‌بندی..."
+    >
+</div>
+
+<div class="header-buttons">
+
+<button class="btn login">
+    ورود / ثبت‌نام
+</button>
+
+<button
+    class="btn cart-btn"
+    onclick="openCart()"
+>
+    🛒 سبد خرید
+    <b class="cart-count" id="cartCount">0</b>
+</button>
+
+</div>
+
+</div>
+
+<nav>
+
+<div class="nav">
+
+<button onclick="setCategory('همه')">
+همه کالاها
+</button>
+
+<button onclick="setCategory('دیجیتال')">
+کالای دیجیتال
+</button>
+
+<button onclick="setCategory('ابزار')">
+ابزار
+</button>
+
+<button onclick="setCategory('موبایل')">
+موبایل
+</button>
+
+<button onclick="setCategory('گیمینگ')">
+گیمینگ
+</button>
+
+<button onclick="setCategory('خانه')">
+خانه
+</button>
+
+<button onclick="showDiscounts()">
+🔥 تخفیف‌ها
+</button>
+
+</div>
+
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="hero">
+
+<div>
+
+<h1>
+خرید هوشمند، ساده و سریع
+</h1>
+
+<p>
+محصولات دیجیتال، ابزار و لوازم کاربردی<br>
+با تجربه‌ای مدرن و حرفه‌ای.
+</p>
+
+<button
+    class="hero-btn"
+    onclick="scrollProducts()"
+>
+مشاهده محصولات
+</button>
+
+</div>
+
+<div class="hero-art">
+🛍️
+</div>
+
+</section>
+
+
+<div class="section-head">
+
+<h2>
+دسته‌بندی‌ها
+</h2>
+
+<span>
+انتخاب سریع
+</span>
+
+</div>
+
+
+<section class="categories">
+
+<div class="category" onclick="setCategory('دیجیتال')">
+<span class="category-icon">🔊</span>
+<span class="category-name">هدفون و اسپیکر</span>
+</div>
+
+<div class="category" onclick="setCategory('موبایل')">
+<span class="category-icon">📱</span>
+<span class="category-name">موبایل و لوازم جانبی</span>
+</div>
+
+<div class="category" onclick="setCategory('ابزار')">
+<span class="category-icon">🧰</span>
+<span class="category-name">ابزار</span>
+</div>
+
+<div class="category" onclick="setCategory('کامپیوتر')">
+<span class="category-icon">💻</span>
+<span class="category-name">لوازم کامپیوتر</span>
+</div>
+
+<div class="category" onclick="setCategory('گیمینگ')">
+<span class="category-icon">🎮</span>
+<span class="category-name">گیمینگ</span>
+</div>
+
+<div class="category" onclick="setCategory('خانه')">
+<span class="category-icon">💡</span>
+<span class="category-name">لوازم خانه</span>
+</div>
+
+</section>
+
+
+<div class="section-head">
+
+<h2>
+محصولات
+</h2>
+
+<div class="filters">
+
+<select id="sort" onchange="renderProducts()">
+
+<option value="default">
+مرتب‌سازی
+</option>
+
+<option value="cheap">
+ارزان‌ترین
+</option>
+
+<option value="expensive">
+گران‌ترین
+</option>
+
+<option value="discount">
+بیشترین تخفیف
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<section
+    class="products"
+    id="products"
+>
+</section>
+
+
+<section class="features">
+
+<div class="feature">
+
+<div class="feature-icon">
+🚚
+</div>
+
+<strong>
+ارسال سریع
+</strong>
+
+<small>
+تحویل سریع سفارش‌ها
+</small>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+🔒
+</div>
+
+<strong>
+پرداخت امن
+</strong>
+
+<small>
+قابل اتصال به درگاه
+</small>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+💬
+</div>
+
+<strong>
+پشتیبانی
+</strong>
+
+<small>
+پاسخ‌گویی آنلاین
+</small>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">
+↩️
+</div>
+
+<strong>
+بازگشت کالا
+</strong>
+
+<small>
+طبق قوانین فروشگاه
+</small>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="footer">
+
+<div>
+
+<h3>
+RazaviShop
+</h3>
+
+<p>
+فروشگاه آنلاین محصولات دیجیتال،
+ابزار و لوازم کاربردی.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+دسترسی سریع
+</h3>
+
+<p>
+<a href="#">
+درباره ما
+</a>
+</p>
+
+<p>
+<a href="#">
+تماس با ما
+</a>
+</p>
+
+<p>
+<a href="#">
+قوانین فروشگاه
+</a>
+</p>
+
+</div>
+
+
+<div>
+
+<h3>
+پشتیبانی
+</h3>
+
+<p>
+شنبه تا پنجشنبه
+</p>
+
+<p>
+پشتیبانی آنلاین
+</p>
+
+</div>
+
+</div>
+
+<div class="copyright">
+© 2026 RazaviShop — تمامی حقوق محفوظ است.
+</div>
+
+</footer>
+
+
+<!-- CART -->
+
+<div
+    class="modal"
+    id="cartModal"
+>
+
+<div class="modal-box">
+
+<div class="modal-header">
+
+<h2>
+🛒 سبد خرید
+</h2>
+
+<button
+    class="close"
+    onclick="closeCart()"
+>
+بستن
+</button>
+
+</div>
+
+<div id="cartItems">
+</div>
+
+<div class="cart-total">
+
+<span>
+مجموع
+</span>
+
+<span id="cartTotal">
+0 تومان
+</span>
+
+</div>
+
+<button
+    class="checkout"
+    onclick="checkout()"
+>
+ادامه و پرداخت
+</button>
+
+</div>
+
+</div>
+
+
+<!-- PRODUCT DETAIL -->
+
+<div
+    class="modal"
+    id="productModal"
+>
+
+<div class="modal-box">
+
+<div id="productDetail">
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+const products = [
+
+{
+id:1,
+name:"اسپیکر بلوتوثی Hopestar A65",
+price:2490000,
+oldPrice:2990000,
+discount:12,
+category:"دیجیتال",
+emoji:"🔊",
+description:"اسپیکر بلوتوثی قدرتمند مناسب استفاده روزمره، مهمانی و فضای باز."
+},
+
+{
+id:2,
+name:"هدفون بی‌سیم Pro Max",
+price:1890000,
+oldPrice:2300000,
+discount:18,
+category:"دیجیتال",
+emoji:"🎧",
+description:"هدفون بی‌سیم با طراحی مدرن و مناسب استفاده روزمره."
+},
+
+{
+id:3,
+name:"ست ابزار حرفه‌ای ۴۶ پارچه",
+price:1350000,
+oldPrice:1600000,
+discount:15,
+category:"ابزار",
+emoji:"🧰",
+description:"ست ابزار کاربردی برای تعمیرات و کارهای فنی."
+},
+
+{
+id:4,
+name:"کیبورد گیمینگ RGB",
+price:990000,
+oldPrice:1250000,
+discount:10,
+category:"گیمینگ",
+emoji:"⌨️",
+description:"کیبورد گیمینگ RGB مناسب بازی و استفاده روزمره."
+},
+
+{
+id:5,
+name:"ماوس گیمینگ حرفه‌ای",
+price:740000,
+oldPrice:920000,
+discount:9,
+category:"گیمینگ",
+emoji:"🖱️",
+description:"ماوس گیمینگ دقیق و مناسب بازی."
+},
+
+{
+id:6,
+name:"پاوربانک ۲۰۰۰۰ میلی‌آمپر",
+price:1290000,
+oldPrice:1550000,
+discount:14,
+category:"موبایل",
+emoji:"🔋",
+description:"پاوربانک ظرفیت بالا برای شارژ دستگاه‌های مختلف."
+},
+
+{
+id:7,
+name:"چراغ LED رومیزی",
+price:590000,
+oldPrice:720000,
+discount:11,
+category:"خانه",
+emoji:"💡",
+description:"چراغ LED مناسب میز کار و مطالعه."
+},
+
+{
+id:8,
+name:"دسته بازی بی‌سیم",
+price:1100000,
+oldPrice:1350000,
+discount:8,
+category:"گیمینگ",
+emoji:"🎮",
+description:"دسته بازی بی‌سیم مناسب کامپیوتر و گیمینگ."
+}
+
+];
+
+
+let currentCategory = "همه";
+let discountOnly = false;
+
+let cart =
+JSON.parse(localStorage.getItem("razavi_cart") || "[]");
+
+let favorites =
+JSON.parse(localStorage.getItem("razavi_favorites") || "[]");
+
+
+function money(number){
+
+return number.toLocaleString("fa-IR");
+
+}
+
+
+function renderProducts(){
+
+let search =
+document
+.getElementById("search")
+.value
+.trim()
+.toLowerCase();
+
+
+let list =
+products.filter(product => {
+
+let categoryOK =
+currentCategory === "همه" ||
+product.category === currentCategory;
+
+let searchOK =
+!search ||
+product.name.toLowerCase().includes(search);
+
+let discountOK =
+!discountOnly ||
+product.discount > 0;
+
+return categoryOK && searchOK && discountOK;
+
+});
+
+
+const sort =
+document.getElementById("sort").value;
+
+
+if(sort === "cheap"){
+
+list.sort((a,b)=>a.price-b.price);
+
+}
+
+if(sort === "expensive"){
+
+list.sort((a,b)=>b.price-a.price);
+
+}
+
+if(sort === "discount"){
+
+list.sort((a,b)=>b.discount-a.discount);
+
+}
+
+
+const container =
+document.getElementById("products");
+
+
+if(list.length === 0){
+
+container.innerHTML = `
+<div style="
+grid-column:1/-1;
+text-align:center;
+padding:60px;
+background:white;
+border-radius:18px;
+">
+محصولی پیدا نشد 😕
+</div>
+`;
+
+return;
+
+}
+
+
+container.innerHTML =
+list.map(product => {
+
+const liked =
+favorites.includes(product.id);
+
+return `
+
+<article class="product">
+
+<div class="product-image">
+
+<span class="discount">
+${product.discount}٪
+</span>
+
+<button
+class="favorite"
+onclick="toggleFavorite(${product.id})"
+>
+${liked ? "❤️" : "♡"}
+</button>
+
+${product.emoji}
+
+</div>
+
+
+<div class="product-body">
+
+<div
+class="product-title"
+onclick="openProduct(${product.id})"
+style="cursor:pointer"
+>
+
+${product.name}
+
+</div>
+
+
+<div>
+
+<span class="price">
+${money(product.price)}
+ تومان
+</span>
+
+<span class="old-price">
+${money(product.oldPrice)}
+</span>
+
+</div>
+
+
+<button
+class="add-cart"
+onclick="addToCart(${product.id})"
+>
+افزودن به سبد 🛒
+</button>
+
+</div>
+
+</article>
+
+`;
+
+}).join("");
+
+}
+
+
+function setCategory(category){
+
+currentCategory = category;
+
+discountOnly = false;
+
+renderProducts();
+
+scrollProducts();
+
+}
+
+
+function showDiscounts(){
+
+currentCategory = "همه";
+
+discountOnly = true;
+
+renderProducts();
+
+scrollProducts();
+
+}
+
+
+function scrollProducts(){
+
+document
+.getElementById("products")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+document
+.getElementById("search")
+.addEventListener(
+"input",
+function(){
+
+currentCategory = "همه";
+
+discountOnly = false;
+
+renderProducts();
+
+});
+
+
+function toggleFavorite(id){
+
+if(favorites.includes(id)){
+
+favorites =
+favorites.filter(x=>x !== id);
+
+}else{
+
+favorites.push(id);
+
+}
+
+localStorage.setItem(
+"razavi_favorites",
+JSON.stringify(favorites)
+);
+
+renderProducts();
+
+}
+
+
+function addToCart(id){
+
+const item =
+cart.find(x=>x.id === id);
+
+
+if(item){
+
+item.quantity++;
+
+}else{
+
+cart.push({
+id:id,
+quantity:1
+});
+
+}
+
+
+saveCart();
+
+updateCartCount();
+
+openCart();
+
+}
+
+
+function saveCart(){
+
+localStorage.setItem(
+"razavi_cart",
+JSON.stringify(cart)
+);
+
+}
+
+
+function updateCartCount(){
+
+const count =
+cart.reduce(
+(total,item)=>total + item.quantity,
+0
+);
+
+document
+.getElementById("cartCount")
+.textContent = count;
+
+}
+
+
+function openCart(){
+
+document
+.getElementById("cartModal")
+.classList.add("active");
+
+renderCart();
+
+}
+
+
+function closeCart(){
+
+document
+.getElementById("cartModal")
+.classList.remove("active");
+
+}
+
+
+function renderCart(){
+
+const container =
+document.getElementById("cartItems");
+
+
+if(cart.length === 0){
+
+container.innerHTML = `
+<div style="
+text-align:center;
+padding:40px;
+color:#777;
+">
+سبد خریدت خالیه 🛒
+</div>
+`;
+
+document
+.getElementById("cartTotal")
+textContent = "0 تومان";
+
+return;
+
+}
+
+
+let total = 0;
+
+
+container.innerHTML =
+cart.map(item => {
+
+const product =
+products.find(
+x=>x.id === item.id
+);
+
+const itemTotal =
+product.price * item.quantity;
+
+total += itemTotal;
+
+
+return `
+
+<div class="cart-item">
+
+<div class="cart-image">
+${product.emoji}
+</div>
+
+
+<div class="cart-info">
+
+<strong>
+${product.name}
+</strong>
+
+<small>
+${money(product.price)} تومان
+</small>
+
+</div>
+
+
+<div class="quantity">
+
+<button
+onclick="changeQuantity(${product.id},-1)"
+>
+−
+</button>
+
+<b>
+${item.quantity}
+</b>
+
+<button
+onclick="changeQuantity(${product.id},1)"
+>
++
+</button>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+
+document
+.getElementById("cartTotal")
+.textContent =
+money(total) + " تومان";
+
+}
+
+
+function changeQuantity(id,change){
+
+const item =
+cart.find(x=>x.id === id);
+
+if(!item) return;
+
+
+item.quantity += change;
+
+
+if(item.quantity <= 0){
+
+cart =
+cart.filter(x=>x.id !== id);
+
+}
+
+
+saveCart();
+
+updateCartCount();
+
+renderCart();
+
+}
+
+
+function openProduct(id){
+
+const product =
+products.find(x=>x.id === id);
+
+if(!product) return;
+
+
+document
+.getElementById("productDetail")
+.innerHTML = `
+
+<div class="modal-header">
+
+<h2>
+جزئیات محصول
+</h2>
+
+<button
+class="close"
+onclick="closeProduct()"
+>
+بستن
+</button>
+
+</div>
+
+
+<div class="detail">
+
+<div class="detail-image">
+${product.emoji}
+</div>
+
+
+<div class="detail-info">
+
+<h2>
+${product.name}
+</h2>
+
+<p style="
+color:#777;
+line-height:2;
+margin-top:15px;
+">
+${product.description}
+</p>
+
+
+<div class="detail-price">
+
+${money(product.price)}
+ تومان
+
+</div>
+
+
+<p style="
+text-decoration:line-through;
+color:#aaa;
+">
+قیمت قبل:
+${money(product.oldPrice)}
+ تومان
+</p>
+
+
+<p style="
+color:#e91e63;
+margin:15px 0;
+font-weight:bold;
+">
+${product.discount}٪ تخفیف
+</p>
+
+
+<button
+onclick="addToCart(${product.id});closeProduct()"
+>
+افزودن به سبد خرید
+</button>
+
+</div>
+
+</div>
+
+`;
+
+
+document
+.getElementById("productModal")
+.classList.add("active");
+
+}
+
+
+function closeProduct(){
+
+document
+.getElementById("productModal")
+.classList.remove("active");
+
+}
+
+
+function checkout(){
+
+if(cart.length === 0){
+
+alert("سبد خرید خالی است.");
+
+return;
+
+}
+
+
+alert(
+"این نسخه فعلاً نمایشی است. مرحله بعد می‌توانیم سیستم سفارش، پنل مدیریت و درگاه پرداخت را به آن وصل کنیم."
+);
+
+}
+
+
+updateCartCount();
+
+renderProducts();
+
+</script>
+
+</body>
+</html>
